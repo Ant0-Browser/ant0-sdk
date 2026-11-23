@@ -1,0 +1,71 @@
+[
+  {
+    "name": "unknown top-level field",
+    "operation": "set",
+    "path": "unexpected",
+    "value": true,
+    "expected_path": "unexpected"
+  },
+  {
+    "name": "available width exceeds screen",
+    "operation": "set",
+    "path": "display.available_width",
+    "value": 2560,
+    "expected_path": "display.available_width"
+  },
+  {
+    "name": "pixel depth differs from color depth",
+    "operation": "set",
+    "path": "display.pixel_depth",
+    "value": 32,
+    "expected_path": "display.pixel_depth"
+  },
+  {
+    "name": "primary language is not first",
+    "operation": "set",
+    "path": "locale.primary_language",
+    "value": "fr-FR",
+    "expected_path": "locale.languages"
+  },
+  {
+    "name": "multiple default voices",
+    "operation": "append",
+    "path": "speech.voices",
+    "value": {
+      "voice_uri": "Example Voice 2 - English (United States)",
+      "name": "Example Voice 2 - English (United States)",
+      "language": "en-US",
+      "local_service": true,
+      "default": true
+    },
+    "expected_path": "speech.voices"
+  },
+  {
+    "name": "unsupported platform",
+    "operation": "set",
+    "path": "compatibility.os_family",
+    "value": "linux",
+    "expected_path": "compatibility.os_family"
+  },
+  {
+    "name": "invalid hardware concurrency",
+    "operation": "set",
+    "path": "hardware.hardware_concurrency",
+    "value": 0,
+    "expected_path": "hardware.hardware_concurrency"
+  },
+  {
+    "name": "unknown WebGPU limit",
+    "operation": "set",
+    "path": "graphics.webgpu.limits.vendorPrivateLimit",
+    "value": 1,
+    "expected_path": "graphics.webgpu.limits.vendorPrivateLimit"
+  },
+  {
+    "name": "browser major outside the Chromium range",
+    "operation": "set",
+    "path": "compatibility.browser_major",
+    "value": 42,
+    "expected_path": "compatibility.browser_major"
+  }
+]

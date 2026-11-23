@@ -1,0 +1,103 @@
+# DRAFT. Not active: GitHub only runs files that end in .yml or .yaml in this folder.
+# To enable: rename to release.yml, then do the one-time setup below.
+#
+# One-time setup (needs the package owner):
+#   npm:  the package `ant0-browser` must exist. Publish with provenance from this workflow
+#         (the `id-token: write` permission and `--provenance` flag below). Use an npm
+#         granular automation token stored as the repository secret NPM_TOKEN, or switch to
+#         npm trusted publishing once it is configured for this repository and workflow.
+#   PyPI: add a Trusted Publisher for project `ant0-browser`: owner Ant0-Browser,
+#         repository ant0-sdk, workflow release.yml, environment pypi. No token is needed.
+#   GitHub: create the environments `npm` and `pypi`, with required reviewers.
+#
+# Trigger: pushing a tag like v0.2.3. The tag must equal the version in both package files.
+#
+# The published tarball and wheel also carry the native runtime files (the `native/` folders).
+# They are not in this repository. Add a step here that stages them from the release store
+# before `npm publish` and `python -m build`, or the published package will not match.
+
+name: Release
+
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-24.04
+    outputs:
+      version: ${{ steps.v.outputs.version }}
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+      - id: v
+        run: |
+          set -eu
+          tag="${GITHUB_REF_NAME#v}"
+          node_v="$(node -p "require('./node/package.json').version")"
+          py_v="$(python3 -c "import tomllib;print(tomllib.load(open('python/pyproject.toml','rb'))['project']['version'])")"
+          [ "$tag" = "$node_v" ] && [ "$tag" = "$py_v" ] || { echo "tag, node and python versions differ"; exit 1; }
+          echo "version=$tag" >> "$GITHUB_OUTPUT"
+
+  npm:
+    needs: check
+    runs-on: ubuntu-24.04
+    environment: npm
+    permissions:
+      contents: read
+      id-token: write # npm provenance
+    defaults:
+      run:
+        working-directory: node
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: "22"
+          registry-url: https://registry.npmjs.org
+      - run: npm ci
+      - run: npm run build
+      - run: npm run typecheck
+      - run: npm test
+      - run: npm publish --provenance --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+  pypi-build:
+    needs: check
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
+        with:
+          python-version: "3.12"
+      - run: python -m pip install build
+      - run: python -m build
+        working-directory: python
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: python-dist
+          path: python/dist/
+
+  pypi-publish:
+    needs: pypi-build
+    runs-on: ubuntu-24.04
+    environment: pypi
+    permissions:
+      id-token: write # PyPI Trusted Publishing
+    steps:
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
+        with:
+          name: python-dist
+          path: dist/
+      - uses: pypa/gh-action-pypi-publish@76f52bc884231f62b9a034ebfe128415bbaabdfc # v1.12.4
+        with:
+          packages-dir: dist/

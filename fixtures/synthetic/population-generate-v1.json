@@ -1,0 +1,1327 @@
+{
+ "algorithm": "ant0/persona-generate/v1",
+ "note": "Golden vectors: Python and Node must reproduce expected_profile exactly. All payloads are made-up test data; none comes from a real machine or population.",
+ "model": {
+  "model_version": "population-model-fixture-1",
+  "generate_algorithm": "ant0/persona-generate/v1",
+  "created_at": "2026-08-24T00:00:00Z",
+  "k_floor": 10,
+  "source": {
+   "repository": "example/source",
+   "revision": "examplerev0000",
+   "files": {
+    "example-a.dat": {
+     "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "example-b.dat": {
+     "sha256": "1111111111111111111111111111111111111111111111111111111111111111"
+    }
+   }
+  },
+  "priors": {
+   "policy_id": "fixture",
+   "blend_alpha_milli": 500,
+   "sources": []
+  },
+  "constants": {
+   "js_heap_size_limit": 4395630592,
+   "desktop_display": {
+    "max_touch_points": 0,
+    "pointer": "fine",
+    "hover": "hover",
+    "color_gamut": "srgb",
+    "dynamic_range": "standard"
+   },
+   "codecs": {
+    "h264": {
+     "supported": true,
+     "smooth": true,
+     "power_efficient": true
+    },
+    "vp8": {
+     "supported": true,
+     "smooth": true,
+     "power_efficient": true
+    },
+    "vp9": {
+     "supported": true,
+     "smooth": true,
+     "power_efficient": true
+    },
+    "av1": {
+     "supported": true,
+     "smooth": true,
+     "power_efficient": true
+    },
+    "hevc": {
+     "supported": true,
+     "smooth": true,
+     "power_efficient": true
+    }
+   },
+   "devices": [
+    {
+     "kind": "audioinput",
+     "label": "Default - Microphone",
+     "device_id": "default",
+     "group_id": "default-audio-group"
+    },
+    {
+     "kind": "audiooutput",
+     "label": "Default - Speakers",
+     "device_id": "default",
+     "group_id": "default-audio-group"
+    }
+   ],
+   "locale": {
+    "primary_language": "en-US",
+    "languages": [
+     "en-US",
+     "en"
+    ],
+    "timezone": "America/New_York"
+   }
+  },
+  "groups": {
+   "graphics": {
+    "independent": true,
+    "values": [
+     {
+      "id": "graphics-a",
+      "support": 40,
+      "weight": 300,
+      "payload": {
+       "webgl": {
+        "unmasked_vendor": "Google Inc. (Example Vendor A)",
+        "unmasked_renderer": "ANGLE (Example Vendor A, Example GPU A (0x0000AAAA) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "webgl1": {
+         "parameters": {
+          "MAX_TEXTURE_SIZE": 16384
+         },
+         "extensions": [
+          "ANGLE_instanced_arrays"
+         ]
+        },
+        "webgl2": {
+         "parameters": {
+          "MAX_3D_TEXTURE_SIZE": 2048
+         },
+         "extensions": [
+          "EXT_color_buffer_float"
+         ]
+        }
+       },
+       "webgpu": {
+        "vendor": "example-a",
+        "architecture": "example-arch-a",
+        "is_fallback_adapter": false,
+        "features": [
+         "texture-compression-bc"
+        ],
+        "limits": {
+         "maxTextureDimension2D": 8192,
+         "maxBindGroups": 4
+        }
+       }
+      }
+     },
+     {
+      "id": "graphics-b",
+      "support": 60,
+      "weight": 700,
+      "payload": {
+       "webgl": {
+        "unmasked_vendor": "Google Inc. (Example Vendor B)",
+        "unmasked_renderer": "ANGLE (Example Vendor B, Example GPU B (0x0000BBBB) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "webgl1": {
+         "parameters": {
+          "MAX_TEXTURE_SIZE": 16384
+         },
+         "extensions": [
+          "ANGLE_instanced_arrays"
+         ]
+        },
+        "webgl2": {
+         "parameters": {
+          "MAX_3D_TEXTURE_SIZE": 2048
+         },
+         "extensions": [
+          "EXT_color_buffer_float"
+         ]
+        }
+       },
+       "webgpu": {
+        "vendor": "example-b",
+        "architecture": "example-arch-b",
+        "is_fallback_adapter": false,
+        "features": [
+         "texture-compression-bc"
+        ],
+        "limits": {
+         "maxTextureDimension2D": 8192,
+         "maxBindGroups": 4
+        }
+       }
+      }
+     }
+    ]
+   },
+   "cpu_mem": {
+    "independent": true,
+    "values": [
+     {
+      "id": "cpu-16",
+      "support": 30,
+      "weight": 400,
+      "payload": {
+       "hardware_concurrency": 16,
+       "device_memory_gb": 8
+      }
+     },
+     {
+      "id": "cpu-8",
+      "support": 70,
+      "weight": 600,
+      "payload": {
+       "hardware_concurrency": 8,
+       "device_memory_gb": 8
+      }
+     }
+    ]
+   },
+   "display": {
+    "independent": true,
+    "values": [
+     {
+      "id": "disp-1080",
+      "support": 100,
+      "weight": 700,
+      "payload": {
+       "width": 1920,
+       "height": 1080,
+       "available_width": 1920,
+       "available_height": 1032,
+       "color_depth": 24,
+       "pixel_depth": 24,
+       "device_pixel_ratio": 1
+      }
+     },
+     {
+      "id": "disp-1440",
+      "support": 40,
+      "weight": 300,
+      "payload": {
+       "width": 2560,
+       "height": 1440,
+       "available_width": 2560,
+       "available_height": 1392,
+       "color_depth": 24,
+       "pixel_depth": 24,
+       "device_pixel_ratio": 1
+      }
+     }
+    ]
+   },
+   "audio": {
+    "independent": true,
+    "values": [
+     {
+      "id": "audio-48k",
+      "support": 90,
+      "weight": 800,
+      "payload": {
+       "sample_rate": 48000,
+       "base_latency": 0.01,
+       "output_latency": 0
+      }
+     },
+     {
+      "id": "audio-44k",
+      "support": 30,
+      "weight": 200,
+      "payload": {
+       "sample_rate": 44100,
+       "base_latency": 0.0058,
+       "output_latency": 0
+      }
+     }
+    ]
+   },
+   "fonts": {
+    "independent": true,
+    "values": [
+     {
+      "id": "fonts-a",
+      "support": 50,
+      "weight": 500,
+      "payload": {
+       "families": [
+        "Arial",
+        "Segoe UI",
+        "Calibri"
+       ]
+      }
+     },
+     {
+      "id": "fonts-b",
+      "support": 40,
+      "weight": 500,
+      "payload": {
+       "families": [
+        "Arial",
+        "Segoe UI",
+        "Verdana",
+        "Tahoma"
+       ]
+      }
+     }
+    ]
+   },
+   "speech": {
+    "independent": true,
+    "values": [
+     {
+      "id": "speech-a",
+      "support": 80,
+      "weight": 900,
+      "payload": {
+       "voices": [
+        {
+         "voice_uri": "Example Voice A",
+         "name": "Example Voice A",
+         "language": "en-US",
+         "local_service": true,
+         "default": true
+        }
+       ]
+      }
+     },
+     {
+      "id": "speech-b",
+      "support": 20,
+      "weight": 100,
+      "payload": {
+       "voices": [
+        {
+         "voice_uri": "Example Voice B",
+         "name": "Example Voice B",
+         "language": "en-US",
+         "local_service": true,
+         "default": true
+        }
+       ]
+      }
+     }
+    ]
+   }
+  }
+ },
+ "drbg_vectors": [
+  {
+   "identity_key": "account-1",
+   "device_key": "0000000000000000000000000000000000000000000000000000000000000000",
+   "model_version": "population-model-fixture-1",
+   "u64": [
+    "3747672994415706275",
+    "17958834100728013988",
+    "13079111441311294713",
+    "9401704112991265565",
+    "8347584388596889531"
+   ]
+  },
+  {
+   "identity_key": "account-2",
+   "device_key": "0000000000000000000000000000000000000000000000000000000000000000",
+   "model_version": "population-model-fixture-1",
+   "u64": [
+    "7995666610555884797",
+    "12108153292915271438",
+    "13916344394403275646",
+    "16183281182191301724",
+    "17492666332979223431"
+   ]
+  },
+  {
+   "identity_key": "account-42",
+   "device_key": "abcdef0123456789abcdef0123456789abcdef0123456789abcdef0123456789",
+   "model_version": "population-model-fixture-1",
+   "u64": [
+    "463800070932993732",
+    "17468393913062852336",
+    "16785969806671323102",
+    "16858882802961488098",
+    "3477948845188413178"
+   ]
+  }
+ ],
+ "vectors": [
+  {
+   "identity_key": "account-1",
+   "device_key": "0000000000000000000000000000000000000000000000000000000000000000",
+   "expected_profile": {
+    "schema_version": 2,
+    "metadata": {
+     "source": "synthetic",
+     "created_at": "2026-08-24T00:00:00Z",
+     "generator": {
+      "name": "ant0-population-generator",
+      "version": "1.1.0",
+      "model_version": "population-model-fixture-1"
+     },
+     "source_references": [
+      {
+       "name": "example-a.dat",
+       "revision": "examplerev0000",
+       "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      {
+       "name": "example-b.dat",
+       "revision": "examplerev0000",
+       "sha256": "1111111111111111111111111111111111111111111111111111111111111111"
+      }
+     ]
+    },
+    "compatibility": {
+     "os_family": "windows",
+     "architecture": "x86_64",
+     "browser_family": "chromium",
+     "browser_major": 158
+    },
+    "hardware": {
+     "hardware_concurrency": 8,
+     "device_memory_gb": 8,
+     "js_heap_size_limit": 4395630592
+    },
+    "display": {
+     "width": 2560,
+     "height": 1440,
+     "available_width": 2560,
+     "available_height": 1392,
+     "color_depth": 24,
+     "pixel_depth": 24,
+     "device_pixel_ratio": 1,
+     "max_touch_points": 0,
+     "pointer": "fine",
+     "hover": "hover",
+     "color_gamut": "srgb",
+     "dynamic_range": "standard"
+    },
+    "locale": {
+     "primary_language": "en-US",
+     "languages": [
+      "en-US",
+      "en"
+     ],
+     "timezone": "America/New_York"
+    },
+    "graphics": {
+     "webgl": {
+      "unmasked_vendor": "Google Inc. (Example Vendor A)",
+      "unmasked_renderer": "ANGLE (Example Vendor A, Example GPU A (0x0000AAAA) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "webgl1": {
+       "parameters": {
+        "MAX_TEXTURE_SIZE": 16384
+       },
+       "extensions": [
+        "ANGLE_instanced_arrays"
+       ]
+      },
+      "webgl2": {
+       "parameters": {
+        "MAX_3D_TEXTURE_SIZE": 2048
+       },
+       "extensions": [
+        "EXT_color_buffer_float"
+       ]
+      }
+     },
+     "webgpu": {
+      "vendor": "example-a",
+      "architecture": "example-arch-a",
+      "is_fallback_adapter": false,
+      "features": [
+       "texture-compression-bc"
+      ],
+      "limits": {
+       "maxTextureDimension2D": 8192,
+       "maxBindGroups": 4
+      }
+     }
+    },
+    "audio": {
+     "sample_rate": 48000,
+     "base_latency": 0.01,
+     "output_latency": 0
+    },
+    "fonts": {
+     "families": [
+      "Arial",
+      "Segoe UI",
+      "Verdana",
+      "Tahoma"
+     ]
+    },
+    "speech": {
+     "voices": [
+      {
+       "voice_uri": "Example Voice A",
+       "name": "Example Voice A",
+       "language": "en-US",
+       "local_service": true,
+       "default": true
+      }
+     ]
+    },
+    "media": {
+     "codecs": {
+      "h264": {
+       "supported": true,
+       "smooth": true,
+       "power_efficient": true
+      },
+      "vp8": {
+       "supported": true,
+       "smooth": true,
+       "power_efficient": true
+      },
+      "vp9": {
+       "supported": true,
+       "smooth": true,
+       "power_efficient": true
+      },
+      "av1": {
+       "supported": true,
+       "smooth": true,
+       "power_efficient": true
+      },
+      "hevc": {
+       "supported": true,
+       "smooth": true,
+       "power_efficient": true
+      }
+     },
+     "devices": [
+      {
+       "kind": "audioinput",
+       "label": "Default - Microphone",
+       "device_id": "default",
+       "group_id": "default-audio-group"
+      },
+      {
+       "kind": "audiooutput",
+       "label": "Default - Speakers",
+       "device_id": "default",
+       "group_id": "default-audio-group"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "identity_key": "account-2",
+   "device_key": "0000000000000000000000000000000000000000000000000000000000000000",
+   "expected_profile": {
+    "schema_version": 2,
+    "metadata": {
+     "source": "synthetic",
+     "created_at": "2026-08-24T00:00:00Z",
+     "generator": {
+      "name": "ant0-population-generator",
+      "version": "1.1.0",
+      "model_version": "population-model-fixture-1"
+     },
+     "source_references": [
+      {
+       "name": "example-a.dat",
+       "revision": "examplerev0000",
+       "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      {
+       "name": "example-b.dat",
+       "revision": "examplerev0000",
+       "sha256": "1111111111111111111111111111111111111111111111111111111111111111"
+      }
+     ]
+    },
+    "compatibility": {
+     "os_family": "windows",
+     "architecture": "x86_64",
+     "browser_family": "chromium",
+     "browser_major": 158
+    },
+    "hardware": {
+     "hardware_concurrency": 8,
+     "device_memory_gb": 8,
+     "js_heap_size_limit": 4395630592
+    },
+    "display": {
+     "width": 1920,
+     "height": 1080,
+     "available_width": 1920,
+     "available_height": 1032,
+     "color_depth": 24,
+     "pixel_depth": 24,
+     "device_pixel_ratio": 1,
+     "max_touch_points": 0,
+     "pointer": "fine",
+     "hover": "hover",
+     "color_gamut": "srgb",
+     "dynamic_range": "standard"
+    },
+    "locale": {
+     "primary_language": "en-US",
+     "languages": [
+      "en-US",
+      "en"
+     ],
+     "timezone": "America/New_York"
+    },
+    "graphics": {
+     "webgl": {
+      "unmasked_vendor": "Google Inc. (Example Vendor B)",
+      "unmasked_renderer": "ANGLE (Example Vendor B, Example GPU B (0x0000BBBB) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "webgl1": {
+       "parameters": {
+        "MAX_TEXTURE_SIZE": 16384
+       },
+       "extensions": [
+        "ANGLE_instanced_arrays"
+       ]
+      },
+      "webgl2": {
+       "parameters": {
+        "MAX_3D_TEXTURE_SIZE": 2048
+       },
+       "extensions": [
+        "EXT_color_buffer_float"
+       ]
+      }
+     },
+     "webgpu": {
+      "vendor": "example-b",
+      "architecture": "example-arch-b",
+      "is_fallback_adapter": false,
+      "features": [
+       "texture-compression-bc"
+      ],
+      "limits": {
+       "maxTextureDimension2D": 8192,
+       "maxBindGroups": 4
+      }
+     }
+    },
+    "audio": {
+     "sample_rate": 48000,
+     "base_latency": 0.01,
+     "output_latency": 0
+    },
+    "fonts": {
+     "families": [
+      "Arial",
+      "Segoe UI",
+      "Calibri"
+     ]
+    },
+    "speech": {
+     "voices": [
+      {
+       "voice_uri": "Example Voice A",
+       "name": "Example Voice A",
+       "language": "en-US",
+       "local_service": true,
+       "default": true
+      }
+     ]
+    },
+    "media": {
+     "codecs": {
+      "h264": {
+       "supported": true,
+       "smooth": true,
+       "power_efficient": true
+      },
+      "vp8": {
+       "supported": true,
+       "smooth": true,
+       "power_efficient": true
+      },
+      "vp9": {
+       "supported": true,
+       "smooth": true,
+       "power_efficient": true
+      },
+      "av1": {
+       "supported": true,
+       "smooth": true,
+       "power_efficient": true
+      },
+      "hevc": {
+       "supported": true,
+       "smooth": true,
+       "power_efficient": true
+      }
+     },
+     "devices": [
+      {
+       "kind": "audioinput",
+       "label": "Default - Microphone",
+       "device_id": "default",
+       "group_id": "default-audio-group"
+      },
+      {
+       "kind": "audiooutput",
+       "label": "Default - Speakers",
+       "device_id": "default",
+       "group_id": "default-audio-group"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "identity_key": "account-42",
+   "device_key": "abcdef0123456789abcdef0123456789abcdef0123456789abcdef0123456789",
+   "expected_profile": {
+    "schema_version": 2,
+    "metadata": {
+     "source": "synthetic",
+     "created_at": "2026-08-24T00:00:00Z",
+     "generator": {
+      "name": "ant0-population-generator",
+      "version": "1.1.0",
+      "model_version": "population-model-fixture-1"
+     },
+     "source_references": [
+      {
+       "name": "example-a.dat",
+       "revision": "examplerev0000",
+       "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      {
+       "name": "example-b.dat",
+       "revision": "examplerev0000",
+       "sha256": "1111111111111111111111111111111111111111111111111111111111111111"
+      }
+     ]
+    },
+    "compatibility": {
+     "os_family": "windows",
+     "architecture": "x86_64",
+     "browser_family": "chromium",
+     "browser_major": 158
+    },
+    "hardware": {
+     "hardware_concurrency": 16,
+     "device_memory_gb": 8,
+     "js_heap_size_limit": 4395630592
+    },
+    "display": {
+     "width": 1920,
+     "height": 1080,
+     "available_width": 1920,
+     "available_height": 1032,
+     "color_depth": 24,
+     "pixel_depth": 24,
+     "device_pixel_ratio": 1,
+     "max_touch_points": 0,
+     "pointer": "fine",
+     "hover": "hover",
+     "color_gamut": "srgb",
+     "dynamic_range": "standard"
+    },
+    "locale": {
+     "primary_language": "en-US",
+     "languages": [
+      "en-US",
+      "en"
+     ],
+     "timezone": "America/New_York"
+    },
+    "graphics": {
+     "webgl": {
+      "unmasked_vendor": "Google Inc. (Example Vendor B)",
+      "unmasked_renderer": "ANGLE (Example Vendor B, Example GPU B (0x0000BBBB) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "webgl1": {
+       "parameters": {
+        "MAX_TEXTURE_SIZE": 16384
+       },
+       "extensions": [
+        "ANGLE_instanced_arrays"
+       ]
+      },
+      "webgl2": {
+       "parameters": {
+        "MAX_3D_TEXTURE_SIZE": 2048
+       },
+       "extensions": [
+        "EXT_color_buffer_float"
+       ]
+      }
+     },
+     "webgpu": {
+      "vendor": "example-b",
+      "architecture": "example-arch-b",
+      "is_fallback_adapter": false,
+      "features": [
+       "texture-compression-bc"
+      ],
+      "limits": {
+       "maxTextureDimension2D": 8192,
+       "maxBindGroups": 4
+      }
+     }
+    },
+    "audio": {
+     "sample_rate": 44100,
+     "base_latency": 0.0058,
+     "output_latency": 0
+    },
+    "fonts": {
+     "families": [
+      "Arial",
+      "Segoe UI",
+      "Calibri"
+     ]
+    },
+    "speech": {
+     "voices": [
+      {
+       "voice_uri": "Example Voice B",
+       "name": "Example Voice B",
+       "language": "en-US",
+       "local_service": true,
+       "default": true
+      }
+     ]
+    },
+    "media": {
+     "codecs": {
+      "h264": {
+       "supported": true,
+       "smooth": true,
+       "power_efficient": true
+      },
+      "vp8": {
+       "supported": true,
+       "smooth": true,
+       "power_efficient": true
+      },
+      "vp9": {
+       "supported": true,
+       "smooth": true,
+       "power_efficient": true
+      },
+      "av1": {
+       "supported": true,
+       "smooth": true,
+       "power_efficient": true
+      },
+      "hevc": {
+       "supported": true,
+       "smooth": true,
+       "power_efficient": true
+      }
+     },
+     "devices": [
+      {
+       "kind": "audioinput",
+       "label": "Default - Microphone",
+       "device_id": "default",
+       "group_id": "default-audio-group"
+      },
+      {
+       "kind": "audiooutput",
+       "label": "Default - Speakers",
+       "device_id": "default",
+       "group_id": "default-audio-group"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "identity_key": "scraper/eu-7",
+   "device_key": "0000000000000000000000000000000000000000000000000000000000000000",
+   "expected_profile": {
+    "schema_version": 2,
+    "metadata": {
+     "source": "synthetic",
+     "created_at": "2026-08-24T00:00:00Z",
+     "generator": {
+      "name": "ant0-population-generator",
+      "version": "1.1.0",
+      "model_version": "population-model-fixture-1"
+     },
+     "source_references": [
+      {
+       "name": "example-a.dat",
+       "revision": "examplerev0000",
+       "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      {
+       "name": "example-b.dat",
+       "revision": "examplerev0000",
+       "sha256": "1111111111111111111111111111111111111111111111111111111111111111"
+      }
+     ]
+    },
+    "compatibility": {
+     "os_family": "windows",
+     "architecture": "x86_64",
+     "browser_family": "chromium",
+     "browser_major": 158
+    },
+    "hardware": {
+     "hardware_concurrency": 8,
+     "device_memory_gb": 8,
+     "js_heap_size_limit": 4395630592
+    },
+    "display": {
+     "width": 1920,
+     "height": 1080,
+     "available_width": 1920,
+     "available_height": 1032,
+     "color_depth": 24,
+     "pixel_depth": 24,
+     "device_pixel_ratio": 1,
+     "max_touch_points": 0,
+     "pointer": "fine",
+     "hover": "hover",
+     "color_gamut": "srgb",
+     "dynamic_range": "standard"
+    },
+    "locale": {
+     "primary_language": "en-US",
+     "languages": [
+      "en-US",
+      "en"
+     ],
+     "timezone": "America/New_York"
+    },
+    "graphics": {
+     "webgl": {
+      "unmasked_vendor": "Google Inc. (Example Vendor B)",
+      "unmasked_renderer": "ANGLE (Example Vendor B, Example GPU B (0x0000BBBB) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "webgl1": {
+       "parameters": {
+        "MAX_TEXTURE_SIZE": 16384
+       },
+       "extensions": [
+        "ANGLE_instanced_arrays"
+       ]
+      },
+      "webgl2": {
+       "parameters": {
+        "MAX_3D_TEXTURE_SIZE": 2048
+       },
+       "extensions": [
+        "EXT_color_buffer_float"
+       ]
+      }
+     },
+     "webgpu": {
+      "vendor": "example-b",
+      "architecture": "example-arch-b",
+      "is_fallback_adapter": false,
+      "features": [
+       "texture-compression-bc"
+      ],
+      "limits": {
+       "maxTextureDimension2D": 8192,
+       "maxBindGroups": 4
+      }
+     }
+    },
+    "audio": {
+     "sample_rate": 48000,
+     "base_latency": 0.01,
+     "output_latency": 0
+    },
+    "fonts": {
+     "families": [
+      "Arial",
+      "Segoe UI",
+      "Calibri"
+     ]
+    },
+    "speech": {
+     "voices": [
+      {
+       "voice_uri": "Example Voice A",
+       "name": "Example Voice A",
+       "language": "en-US",
+       "local_service": true,
+       "default": true
+      }
+     ]
+    },
+    "media": {
+     "codecs": {
+      "h264": {
+       "supported": true,
+       "smooth": true,
+       "power_efficient": true
+      },
+      "vp8": {
+       "supported": true,
+       "smooth": true,
+       "power_efficient": true
+      },
+      "vp9": {
+       "supported": true,
+       "smooth": true,
+       "power_efficient": true
+      },
+      "av1": {
+       "supported": true,
+       "smooth": true,
+       "power_efficient": true
+      },
+      "hevc": {
+       "supported": true,
+       "smooth": true,
+       "power_efficient": true
+      }
+     },
+     "devices": [
+      {
+       "kind": "audioinput",
+       "label": "Default - Microphone",
+       "device_id": "default",
+       "group_id": "default-audio-group"
+      },
+      {
+       "kind": "audiooutput",
+       "label": "Default - Speakers",
+       "device_id": "default",
+       "group_id": "default-audio-group"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "identity_key": "",
+   "device_key": "0000000000000000000000000000000000000000000000000000000000000000",
+   "expected_profile": {
+    "schema_version": 2,
+    "metadata": {
+     "source": "synthetic",
+     "created_at": "2026-08-24T00:00:00Z",
+     "generator": {
+      "name": "ant0-population-generator",
+      "version": "1.1.0",
+      "model_version": "population-model-fixture-1"
+     },
+     "source_references": [
+      {
+       "name": "example-a.dat",
+       "revision": "examplerev0000",
+       "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      {
+       "name": "example-b.dat",
+       "revision": "examplerev0000",
+       "sha256": "1111111111111111111111111111111111111111111111111111111111111111"
+      }
+     ]
+    },
+    "compatibility": {
+     "os_family": "windows",
+     "architecture": "x86_64",
+     "browser_family": "chromium",
+     "browser_major": 158
+    },
+    "hardware": {
+     "hardware_concurrency": 8,
+     "device_memory_gb": 8,
+     "js_heap_size_limit": 4395630592
+    },
+    "display": {
+     "width": 1920,
+     "height": 1080,
+     "available_width": 1920,
+     "available_height": 1032,
+     "color_depth": 24,
+     "pixel_depth": 24,
+     "device_pixel_ratio": 1,
+     "max_touch_points": 0,
+     "pointer": "fine",
+     "hover": "hover",
+     "color_gamut": "srgb",
+     "dynamic_range": "standard"
+    },
+    "locale": {
+     "primary_language": "en-US",
+     "languages": [
+      "en-US",
+      "en"
+     ],
+     "timezone": "America/New_York"
+    },
+    "graphics": {
+     "webgl": {
+      "unmasked_vendor": "Google Inc. (Example Vendor A)",
+      "unmasked_renderer": "ANGLE (Example Vendor A, Example GPU A (0x0000AAAA) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "webgl1": {
+       "parameters": {
+        "MAX_TEXTURE_SIZE": 16384
+       },
+       "extensions": [
+        "ANGLE_instanced_arrays"
+       ]
+      },
+      "webgl2": {
+       "parameters": {
+        "MAX_3D_TEXTURE_SIZE": 2048
+       },
+       "extensions": [
+        "EXT_color_buffer_float"
+       ]
+      }
+     },
+     "webgpu": {
+      "vendor": "example-a",
+      "architecture": "example-arch-a",
+      "is_fallback_adapter": false,
+      "features": [
+       "texture-compression-bc"
+      ],
+      "limits": {
+       "maxTextureDimension2D": 8192,
+       "maxBindGroups": 4
+      }
+     }
+    },
+    "audio": {
+     "sample_rate": 48000,
+     "base_latency": 0.01,
+     "output_latency": 0
+    },
+    "fonts": {
+     "families": [
+      "Arial",
+      "Segoe UI",
+      "Verdana",
+      "Tahoma"
+     ]
+    },
+    "speech": {
+     "voices": [
+      {
+       "voice_uri": "Example Voice A",
+       "name": "Example Voice A",
+       "language": "en-US",
+       "local_service": true,
+       "default": true
+      }
+     ]
+    },
+    "media": {
+     "codecs": {
+      "h264": {
+       "supported": true,
+       "smooth": true,
+       "power_efficient": true
+      },
+      "vp8": {
+       "supported": true,
+       "smooth": true,
+       "power_efficient": true
+      },
+      "vp9": {
+       "supported": true,
+       "smooth": true,
+       "power_efficient": true
+      },
+      "av1": {
+       "supported": true,
+       "smooth": true,
+       "power_efficient": true
+      },
+      "hevc": {
+       "supported": true,
+       "smooth": true,
+       "power_efficient": true
+      }
+     },
+     "devices": [
+      {
+       "kind": "audioinput",
+       "label": "Default - Microphone",
+       "device_id": "default",
+       "group_id": "default-audio-group"
+      },
+      {
+       "kind": "audiooutput",
+       "label": "Default - Speakers",
+       "device_id": "default",
+       "group_id": "default-audio-group"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "identity_key": "unicode-éè",
+   "device_key": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+   "expected_profile": {
+    "schema_version": 2,
+    "metadata": {
+     "source": "synthetic",
+     "created_at": "2026-08-24T00:00:00Z",
+     "generator": {
+      "name": "ant0-population-generator",
+      "version": "1.1.0",
+      "model_version": "population-model-fixture-1"
+     },
+     "source_references": [
+      {
+       "name": "example-a.dat",
+       "revision": "examplerev0000",
+       "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      {
+       "name": "example-b.dat",
+       "revision": "examplerev0000",
+       "sha256": "1111111111111111111111111111111111111111111111111111111111111111"
+      }
+     ]
+    },
+    "compatibility": {
+     "os_family": "windows",
+     "architecture": "x86_64",
+     "browser_family": "chromium",
+     "browser_major": 158
+    },
+    "hardware": {
+     "hardware_concurrency": 8,
+     "device_memory_gb": 8,
+     "js_heap_size_limit": 4395630592
+    },
+    "display": {
+     "width": 2560,
+     "height": 1440,
+     "available_width": 2560,
+     "available_height": 1392,
+     "color_depth": 24,
+     "pixel_depth": 24,
+     "device_pixel_ratio": 1,
+     "max_touch_points": 0,
+     "pointer": "fine",
+     "hover": "hover",
+     "color_gamut": "srgb",
+     "dynamic_range": "standard"
+    },
+    "locale": {
+     "primary_language": "en-US",
+     "languages": [
+      "en-US",
+      "en"
+     ],
+     "timezone": "America/New_York"
+    },
+    "graphics": {
+     "webgl": {
+      "unmasked_vendor": "Google Inc. (Example Vendor B)",
+      "unmasked_renderer": "ANGLE (Example Vendor B, Example GPU B (0x0000BBBB) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "webgl1": {
+       "parameters": {
+        "MAX_TEXTURE_SIZE": 16384
+       },
+       "extensions": [
+        "ANGLE_instanced_arrays"
+       ]
+      },
+      "webgl2": {
+       "parameters": {
+        "MAX_3D_TEXTURE_SIZE": 2048
+       },
+       "extensions": [
+        "EXT_color_buffer_float"
+       ]
+      }
+     },
+     "webgpu": {
+      "vendor": "example-b",
+      "architecture": "example-arch-b",
+      "is_fallback_adapter": false,
+      "features": [
+       "texture-compression-bc"
+      ],
+      "limits": {
+       "maxTextureDimension2D": 8192,
+       "maxBindGroups": 4
+      }
+     }
+    },
+    "audio": {
+     "sample_rate": 48000,
+     "base_latency": 0.01,
+     "output_latency": 0
+    },
+    "fonts": {
+     "families": [
+      "Arial",
+      "Segoe UI",
+      "Calibri"
+     ]
+    },
+    "speech": {
+     "voices": [
+      {
+       "voice_uri": "Example Voice A",
+       "name": "Example Voice A",
+       "language": "en-US",
+       "local_service": true,
+       "default": true
+      }
+     ]
+    },
+    "media": {
+     "codecs": {
+      "h264": {
+       "supported": true,
+       "smooth": true,
+       "power_efficient": true
+      },
+      "vp8": {
+       "supported": true,
+       "smooth": true,
+       "power_efficient": true
+      },
+      "vp9": {
+       "supported": true,
+       "smooth": true,
+       "power_efficient": true
+      },
+      "av1": {
+       "supported": true,
+       "smooth": true,
+       "power_efficient": true
+      },
+      "hevc": {
+       "supported": true,
+       "smooth": true,
+       "power_efficient": true
+      }
+     },
+     "devices": [
+      {
+       "kind": "audioinput",
+       "label": "Default - Microphone",
+       "device_id": "default",
+       "group_id": "default-audio-group"
+      },
+      {
+       "kind": "audiooutput",
+       "label": "Default - Speakers",
+       "device_id": "default",
+       "group_id": "default-audio-group"
+      }
+     ]
+    }
+   }
+  }
+ ]
+}

@@ -1,0 +1,36 @@
+{
+  "algorithm": "ant0/persona-template-selection/v1",
+  "template_ids": ["desktop-a", "laptop-b", "workstation-c"],
+  "vectors": [
+    {
+      "identity_key": "identity-0",
+      "device_key": "device-1",
+      "sha256": "f5bbac7aff75e96db9f355686232cd482d3e174dbc9fc151189ef6c7b224c0b6",
+      "selected_id": "laptop-b"
+    },
+    {
+      "identity_key": "identity-2",
+      "device_key": "device-1",
+      "sha256": "029f926b689fbf128398aa076d418955642d3b8ed4c397094b15845e33f52492",
+      "selected_id": "workstation-c"
+    },
+    {
+      "identity_key": "alice",
+      "device_key": "device-6",
+      "sha256": "fe701cff2d0f638dd7556e3d17dfe1618ac5a408010357e6bf04d212a2655f2b",
+      "selected_id": "laptop-b"
+    },
+    {
+      "identity_key": "",
+      "device_key": "",
+      "sha256": "de5d58aef1350af556d5d954d454230004a778181278faf61d9355155b2b1386",
+      "selected_id": "workstation-c"
+    },
+    {
+      "identity_key": "identity-🌍",
+      "device_key": "device-β",
+      "sha256": "3adf66a057e6da9ec4daf0a2848e06abde800c59e71a34742af0491b2cc79cc3",
+      "selected_id": "workstation-c"
+    }
+  ]
+}

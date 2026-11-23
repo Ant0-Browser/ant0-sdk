@@ -1,0 +1,159 @@
+{
+  "schema_version": 2,
+  "metadata": {
+    "source": "synthetic",
+    "created_at": "2026-08-24T00:00:00Z",
+    "generator": {
+      "name": "example-generator",
+      "version": "0.1.0",
+      "model_version": "example-1"
+    }
+  },
+  "compatibility": {
+    "os_family": "windows",
+    "architecture": "x86_64",
+    "browser_family": "chromium",
+    "browser_major": 158
+  },
+  "hardware": {
+    "hardware_concurrency": 8,
+    "device_memory_gb": 8,
+    "js_heap_size_limit": 4395630592
+  },
+  "display": {
+    "width": 1920,
+    "height": 1080,
+    "available_width": 1920,
+    "available_height": 1040,
+    "color_depth": 24,
+    "pixel_depth": 24,
+    "device_pixel_ratio": 1,
+    "max_touch_points": 0,
+    "pointer": "fine",
+    "hover": "hover",
+    "color_gamut": "srgb",
+    "dynamic_range": "standard"
+  },
+  "locale": {
+    "primary_language": "en-US",
+    "languages": [
+      "en-US",
+      "en"
+    ],
+    "timezone": "America/New_York"
+  },
+  "graphics": {
+    "webgl": {
+      "unmasked_vendor": "Google Inc. (Example Vendor)",
+      "unmasked_renderer": "ANGLE (Example Vendor, Example GPU (0x0000ABCD) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "webgl1": {
+        "parameters": {
+          "MAX_TEXTURE_SIZE": 16384,
+          "MAX_VIEWPORT_DIMS": [
+            32767,
+            32767
+          ],
+          "ALIASED_LINE_WIDTH_RANGE": [
+            1,
+            1
+          ]
+        },
+        "extensions": [
+          "ANGLE_instanced_arrays",
+          "EXT_texture_filter_anisotropic"
+        ]
+      },
+      "webgl2": {
+        "parameters": {
+          "MAX_3D_TEXTURE_SIZE": 2048,
+          "MAX_DRAW_BUFFERS": 8,
+          "MAX_SAMPLES": 8
+        },
+        "extensions": [
+          "EXT_color_buffer_float"
+        ]
+      }
+    },
+    "webgpu": {
+      "vendor": "example",
+      "architecture": "example-arch",
+      "is_fallback_adapter": false,
+      "features": [],
+      "limits": {
+        "maxTextureDimension1D": 8192,
+        "maxTextureDimension2D": 8192,
+        "maxTextureDimension3D": 2048,
+        "maxTextureArrayLayers": 256,
+        "maxBindGroups": 4,
+        "maxBufferSize": 268435456
+      }
+    }
+  },
+  "audio": {
+    "sample_rate": 48000,
+    "base_latency": 0.01,
+    "output_latency": 0.015
+  },
+  "fonts": {
+    "families": [
+      "Arial",
+      "Calibri",
+      "Segoe UI",
+      "Times New Roman"
+    ]
+  },
+  "speech": {
+    "voices": [
+      {
+        "voice_uri": "Example Voice - English (United States)",
+        "name": "Example Voice - English (United States)",
+        "language": "en-US",
+        "local_service": true,
+        "default": true
+      }
+    ]
+  },
+  "media": {
+    "codecs": {
+      "h264": {
+        "supported": true,
+        "smooth": true,
+        "power_efficient": true
+      },
+      "vp8": {
+        "supported": true,
+        "smooth": true,
+        "power_efficient": true
+      },
+      "vp9": {
+        "supported": true,
+        "smooth": true,
+        "power_efficient": true
+      },
+      "av1": {
+        "supported": true,
+        "smooth": true,
+        "power_efficient": true
+      },
+      "hevc": {
+        "supported": true,
+        "smooth": true,
+        "power_efficient": true
+      }
+    },
+    "devices": [
+      {
+        "kind": "audioinput",
+        "label": "Default - Microphone",
+        "device_id": "default",
+        "group_id": "default-audio-group"
+      },
+      {
+        "kind": "audiooutput",
+        "label": "Default - Speakers",
+        "device_id": "default",
+        "group_id": "default-audio-group"
+      }
+    ]
+  }
+}

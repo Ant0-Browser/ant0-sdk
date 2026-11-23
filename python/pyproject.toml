@@ -1,0 +1,57 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "ant0-browser"
+version = "0.2.2"
+description = "Playwright SDK for a separately installed Ant0 Browser engine."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "BSD-3-Clause" }
+keywords = [
+    "ant0-browser",
+    "playwright",
+    "chromium",
+    "fingerprint",
+    "farbling",
+    "automation",
+    "browser-automation",
+    "ai-agents",
+    "browser-personas",
+]
+dependencies = [
+    "playwright>=1.40",
+    "maxminddb>=2.2",
+]
+
+[project.scripts]
+ant0-browser-serve = "ant0browser._serve:_cli_main"
+
+[project.optional-dependencies]
+test = ["pytest>=7", "pytest-asyncio>=0.23"]
+
+[project.urls]
+Homepage = "https://github.com/Ant0-Browser/ant0-sdk"
+Repository = "https://github.com/Ant0-Browser/ant0-sdk"
+Issues = "https://github.com/Ant0-Browser/ant0-sdk/issues"
+Documentation = "https://docs.ant0.link/sdk"
+Support = "https://ant0.link/contact"
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+pythonpath = ["."]
+
+[tool.hatch.build.targets.wheel]
+packages = ["ant0browser"]
+
+[tool.hatch.build.targets.sdist]
+include = ["ant0browser", "README.md", "LICENSE"]
+
+[tool.ruff]
+line-length = 200
+extend-exclude = ["scripts"]
+
+[tool.ruff.lint]
+select = ["E9", "F"]
+ignore = ["F401", "F841", "F811"]

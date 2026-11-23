@@ -1,0 +1,16 @@
+{
+  "filename_algorithm": "HMAC-SHA256(device_key, UTF8(ant0/identity-filename/v1\\0) || UTF8(identity_key))",
+  "device_key_hex": "000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f",
+  "wrapper_fields": ["schema_version", "template_selection_algorithm", "template_id", "created_at", "profile"],
+  "wrapper_schema_version": 1,
+  "template_selection_algorithm": "ant0/persona-template-selection/v1",
+  "generated_wrapper_fields": ["schema_version", "algorithm", "algorithm_ref", "created_at", "profile"],
+  "generated_wrapper_schema_version": 2,
+  "generate_algorithm": "ant0/persona-generate/v1",
+  "vectors": [
+    {"identity_key": "", "filename": "25a0034986b3eacbd545a11e25dc606083a6eabd56a6d75342863e636a643e83.json"},
+    {"identity_key": "account-42", "filename": "5f3899096575bd43b8a0f24f354c057f43fa8d63ec7592cc15c5d7505d508566.json"},
+    {"identity_key": "identity-🌍", "filename": "d2223dca849d7fc55b4cffbe273ae2a1299a0f3ecfce2cb95cc5c26464dfc5a1.json"},
+    {"identity_key": "../unsafe", "filename": "ed3af4a25d76ff704e52b780daab89116c3453791fa856dd283babd8c927d31e.json"}
+  ]
+}

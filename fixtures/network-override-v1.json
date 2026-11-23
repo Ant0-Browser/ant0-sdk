@@ -1,0 +1,30 @@
+{
+  "description": "Shared cases for the navigator.connection override; Node (network: rtt/downlink/effectiveType) and Python (network: rtt/downlink/effective_type) must produce the same profile.network block. Base profile is fixtures/synthetic/persona-v2.json. The override is launch-only; an empty override adds no block.",
+  "cases": [
+    {"label": "rtt alone", "override": {"rtt": 100}, "network_block": {"rtt_ms": 100}},
+    {"label": "downlink alone, fractional", "override": {"downlink": 7.5}, "network_block": {"downlink_mbps": 7.5}},
+    {"label": "effective type alone", "override": {"effective_type": "3g"}, "network_block": {"effective_type": "3g"}},
+    {"label": "all three", "override": {"rtt": 150, "downlink": 25, "effective_type": "4g"}, "network_block": {"rtt_ms": 150, "downlink_mbps": 25, "effective_type": "4g"}},
+    {"label": "limits", "override": {"rtt": 3000, "downlink": 1000, "effective_type": "slow-2g"}, "network_block": {"rtt_ms": 3000, "downlink_mbps": 1000, "effective_type": "slow-2g"}},
+    {"label": "empty adds no block", "override": {}, "network_block": null},
+    {"label": "null fields are not given", "override": {"rtt": null, "downlink": null, "effective_type": null}, "network_block": null},
+    {"label": "null beside a value", "override": {"rtt": 100, "downlink": null}, "network_block": {"rtt_ms": 100}},
+    {"label": "consistent rtt and type", "override": {"rtt": 450, "effective_type": "3g"}, "network_block": {"rtt_ms": 450, "effective_type": "3g"}},
+    {"label": "type alone below 4g is passed on (the engine derives rtt and downlink)", "override": {"effective_type": "2g"}, "network_block": {"effective_type": "2g"}}
+  ],
+  "invalid": [
+    {"override": {"rtt": 0}},
+    {"override": {"rtt": 3001}},
+    {"override": {"rtt": "100"}},
+    {"override": {"downlink": -1}},
+    {"override": {"downlink": 1000.5}},
+    {"override": {"effective_type": "5g"}},
+    {"override": {"effective_type": 4}},
+    {"override": {"rtt": true}},
+    {"override": {"rtt": 50, "bogus": 1}},
+    {"override": {"rtt": 50, "effective_type": "3g"}},
+    {"override": {"rtt": 450, "effective_type": "4g"}},
+    {"override": {"rtt": 3000, "effective_type": "3g"}},
+    {"override": {"rtt": 271, "effective_type": "3g"}}
+  ]
+}

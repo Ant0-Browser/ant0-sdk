@@ -1,0 +1,1 @@
+Ant0 Browser release-signature fixture. This file is signed by the production release key so the SDK can prove its embedded public key and minisign parser agree with the real tool.

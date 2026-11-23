@@ -1,0 +1,208 @@
+{
+  "comment": "Shared by the Node and Python SDK suites: --ant0-sdk-info output and the persona schemas both read from it. Entries with expected_info also pin the parsed persona member (wire names). The protocol 2 samples follow what the engine prints (compact JSON, keys sorted, one line, newline).",
+  "cases": [
+    {
+      "name": "plain",
+      "output": "{\"sdk_protocol\":2,\"persona\":{\"schemas\":[2,4]}}",
+      "expected": [
+        2,
+        4
+      ]
+    },
+    {
+      "name": "banner line first",
+      "output": "banner {not json\n{\"sdk_protocol\":2,\"persona\":{\"schemas\":[2,4]}}\n",
+      "expected": [
+        2,
+        4
+      ]
+    },
+    {
+      "name": "last object line wins",
+      "output": "{\"sdk_protocol\":2,\"persona\":{\"schemas\":[2]}}\n{\"sdk_protocol\":2,\"persona\":{\"schemas\":[2,4]}}\n\n",
+      "expected": [
+        2,
+        4
+      ]
+    },
+    {
+      "name": "integral floats count as integers",
+      "output": "{\"sdk_protocol\":2.0,\"persona\":{\"schemas\":[2,4.0]}}",
+      "expected": [
+        2,
+        4
+      ]
+    },
+    {
+      "name": "non-integral protocol",
+      "output": "{\"sdk_protocol\":2.5,\"persona\":{\"schemas\":[2,4]}}",
+      "expected": [
+        2
+      ]
+    },
+    {
+      "name": "string protocol",
+      "output": "{\"sdk_protocol\":\"2\",\"persona\":{\"schemas\":[2,4]}}",
+      "expected": [
+        2
+      ]
+    },
+    {
+      "name": "boolean protocol",
+      "output": "{\"sdk_protocol\":true,\"persona\":{\"schemas\":[2,4]}}",
+      "expected": [
+        2
+      ]
+    },
+    {
+      "name": "protocol 1",
+      "output": "{\"sdk_protocol\":1,\"persona\":{\"schemas\":[2,4]}}",
+      "expected": [
+        2
+      ]
+    },
+    {
+      "name": "string and fractional schemas",
+      "output": "{\"sdk_protocol\":2,\"persona\":{\"schemas\":[\"4\",4.5,2]}}",
+      "expected": [
+        2
+      ]
+    },
+    {
+      "name": "only unusable schemas",
+      "output": "{\"sdk_protocol\":2,\"persona\":{\"schemas\":[\"4\"]}}",
+      "expected": [
+        2
+      ]
+    },
+    {
+      "name": "array, not object",
+      "output": "[{\"sdk_protocol\":2}]",
+      "expected": [
+        2
+      ]
+    },
+    {
+      "name": "empty",
+      "output": "",
+      "expected": [
+        2
+      ]
+    },
+    {
+      "name": "broken",
+      "output": "{ broken",
+      "expected": [
+        2
+      ]
+    },
+    {
+      "name": "protocol 2 as printed by the engine",
+      "output": "{\"product\":\"ant0-browser\",\"sdk_protocol\":2,\"capabilities\":[\"persona-profile-v1\"],\"persona\":{\"arch\":[\"x86_64\",\"arm64\"],\"brands\":[\"chrome\",\"edge\",\"opera\",\"vivaldi\"],\"capabilities\":[\"navigator\",\"navigator.ua_ch\",\"display\",\"input\",\"gpu.webgl\",\"gpu.webgpu\",\"fonts\",\"speech\",\"audio\",\"media.decoding\",\"media.devices\",\"network\"],\"engine_family\":\"blink\",\"engine_major\":158,\"os\":[\"windows\",\"linux\",\"macos\",\"android\"],\"revision\":1,\"schemas\":[2,4]},\"capability_marker\":\"ant0-browser-capabilities/persona-profile-v1\"}\n",
+      "expected": [
+        2,
+        4
+      ],
+      "expected_info": {
+        "arch": [
+          "x86_64",
+          "arm64"
+        ],
+        "brands": [
+          "chrome",
+          "edge",
+          "opera",
+          "vivaldi"
+        ],
+        "capabilities": [
+          "navigator",
+          "navigator.ua_ch",
+          "display",
+          "input",
+          "gpu.webgl",
+          "gpu.webgpu",
+          "fonts",
+          "speech",
+          "audio",
+          "media.decoding",
+          "media.devices",
+          "network"
+        ],
+        "engine_family": "blink",
+        "engine_major": 158,
+        "os": [
+          "windows",
+          "linux",
+          "macos",
+          "android"
+        ],
+        "revision": 1,
+        "schemas": [
+          2,
+          4
+        ]
+      }
+    },
+    {
+      "name": "protocol 2 with unknown fields and no capabilities list",
+      "output": "{\"product\":\"ant0-browser\",\"sdk_protocol\":2,\"capabilities\":[\"persona-profile-v1\"],\"persona\":{\"arch\":[\"x86_64\",\"arm64\"],\"brands\":[\"chrome\",\"edge\",\"opera\",\"vivaldi\",7],\"engine_family\":\"blink\",\"engine_major\":158,\"os\":[\"windows\",\"linux\",\"macos\",\"android\"],\"revision\":1,\"schemas\":[2,4],\"future_field\":{\"x\":1}},\"capability_marker\":\"ant0-browser-capabilities/persona-profile-v1\",\"somewhere\":\"else\"}\n",
+      "expected": [
+        2,
+        4
+      ],
+      "expected_info": {
+        "arch": [
+          "x86_64",
+          "arm64"
+        ],
+        "brands": [
+          "chrome",
+          "edge",
+          "opera",
+          "vivaldi"
+        ],
+        "engine_family": "blink",
+        "engine_major": 158,
+        "os": [
+          "windows",
+          "linux",
+          "macos",
+          "android"
+        ],
+        "revision": 1,
+        "schemas": [
+          2,
+          4
+        ]
+      }
+    },
+    {
+      "name": "protocol 1 as printed by earlier engines",
+      "output": "{\"product\":\"ant0-browser\",\"sdk_protocol\":1,\"capabilities\":[\"persona-profile-v1\"],\"capability_marker\":\"ant0-browser-capabilities/persona-profile-v1\"}\n",
+      "expected": [
+        2
+      ],
+      "expected_info": {
+        "schemas": [
+          2
+        ]
+      }
+    },
+    {
+      "name": "leading byte order mark",
+      "output": "\ufeff{\"sdk_protocol\":2,\"persona\":{\"schemas\":[2,4]}}",
+      "expected": [
+        2,
+        4
+      ]
+    },
+    {
+      "name": "leading byte order mark before a banner line",
+      "output": "\ufeffbanner\n{\"sdk_protocol\":2,\"persona\":{\"schemas\":[2,4]}}\n",
+      "expected": [
+        2,
+        4
+      ]
+    }
+  ]
+}

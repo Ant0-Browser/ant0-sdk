@@ -1,0 +1,23 @@
+{
+  "description": "Shared cases for the audio profile override; Node (audioProfile: sampleRate/baseLatency/outputLatency) and Python (audio_profile: sample_rate/base_latency/output_latency) must produce the same profile.audio. Base profile is fixtures/synthetic/persona-v2.json.",
+  "cases": [
+    {"label": "sample rate alone", "override": {"sample_rate": 44100}, "audio_overrides": {"sample_rate": 44100}},
+    {"label": "base latency alone", "override": {"base_latency": 0.010159}, "audio_overrides": {"base_latency": 0.010159}},
+    {"label": "output latency alone, zero allowed", "override": {"output_latency": 0}, "audio_overrides": {"output_latency": 0}},
+    {"label": "partial override", "override": {"sample_rate": 44100, "base_latency": 0.01}, "audio_overrides": {"sample_rate": 44100, "base_latency": 0.01}},
+    {"label": "all three", "override": {"sample_rate": 44100, "base_latency": 0.010159, "output_latency": 0.02}, "audio_overrides": {"sample_rate": 44100, "base_latency": 0.010159, "output_latency": 0.02}},
+    {"label": "unusual but valid", "override": {"sample_rate": 8000, "base_latency": 1, "output_latency": 1}, "audio_overrides": {"sample_rate": 8000, "base_latency": 1, "output_latency": 1}}
+  ],
+  "invalid": [
+    {"override": {"sample_rate": "44100"}},
+    {"override": {"sample_rate": 7999}},
+    {"override": {"sample_rate": 384001}},
+    {"override": {"base_latency": 0}},
+    {"override": {"base_latency": 1.01}},
+    {"override": {"base_latency": -0.01}},
+    {"override": {"output_latency": -0.001}},
+    {"override": {"output_latency": 1.5}},
+    {"override": {"output_latency": null, "sample_rate": true}},
+    {"override": {"sample_rate": 44100, "bogus": 1}}
+  ]
+}

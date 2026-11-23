@@ -1,0 +1,2172 @@
+{
+  "note": "Golden cases for node/src/speech-coherence.ts and python/ant0browser/_speech_coherence.py; regenerate from Node and confirm Python agrees. The persona language is profile.locale.primary_language; accept_language is a decoy the function must ignore. Each case may carry a `brand` (the launch brand, options.brand); network voices follow it: only the Chrome brand lists them.",
+  "cases": [
+    {
+      "label": "win en-US keeps matching capture",
+      "profile": {
+        "locale": {
+          "primary_language": "en-US"
+        },
+        "hardware": {
+          "hardware_concurrency": 4,
+          "device_memory_gb": 8
+        },
+        "display": {
+          "width": 1920,
+          "height": 1080
+        },
+        "speech": {
+          "voices": [
+            {
+              "voice_uri": "Microsoft David - English (United States)",
+              "name": "Microsoft David - English (United States)",
+              "language": "en-US",
+              "local_service": true,
+              "default": true
+            },
+            {
+              "voice_uri": "Microsoft Zira - English (United States)",
+              "name": "Microsoft Zira - English (United States)",
+              "language": "en-US",
+              "local_service": true,
+              "default": false
+            }
+          ]
+        }
+      },
+      "platform": "windows",
+      "accept_language": "ru-RU,ru;q=0.9",
+      "expect": {
+        "fallback": false,
+        "count": 2,
+        "default": "Microsoft David - English (United States)",
+        "sha256": "49c71df039de86793d88a9607114e22fdd2d88fe8d5418bc429f1df739068cff"
+      },
+      "brand": "chrome"
+    },
+    {
+      "label": "win en-US replaces Irina",
+      "profile": {
+        "locale": {
+          "primary_language": "en-US"
+        },
+        "hardware": {
+          "hardware_concurrency": 4,
+          "device_memory_gb": 8
+        },
+        "display": {
+          "width": 1920,
+          "height": 1080
+        },
+        "speech": {
+          "voices": [
+            {
+              "voice_uri": "Microsoft Irina - Russian (Russia)",
+              "name": "Microsoft Irina - Russian (Russia)",
+              "language": "ru-RU",
+              "local_service": true,
+              "default": true
+            },
+            {
+              "voice_uri": "Microsoft Pavel - Russian (Russia)",
+              "name": "Microsoft Pavel - Russian (Russia)",
+              "language": "ru-RU",
+              "local_service": true,
+              "default": false
+            },
+            {
+              "voice_uri": "Google US English",
+              "name": "Google US English",
+              "language": "en-US",
+              "local_service": false,
+              "default": false
+            }
+          ]
+        }
+      },
+      "platform": "windows",
+      "accept_language": "ru-RU,ru;q=0.9",
+      "expect": {
+        "fallback": false,
+        "count": 22,
+        "default": "Microsoft David - English (United States)",
+        "sha256": "caf5d359f8c4890fba79d92bcacb78bf61f8033fa76775b2b352d54201df2f07"
+      },
+      "brand": "chrome"
+    },
+    {
+      "label": "win en-GB wants George",
+      "profile": {
+        "locale": {
+          "primary_language": "en-GB"
+        },
+        "hardware": {
+          "hardware_concurrency": 5,
+          "device_memory_gb": 8
+        },
+        "display": {
+          "width": 1919,
+          "height": 1080
+        },
+        "speech": {
+          "voices": [
+            {
+              "voice_uri": "Microsoft David - English (United States)",
+              "name": "Microsoft David - English (United States)",
+              "language": "en-US",
+              "local_service": true,
+              "default": true
+            },
+            {
+              "voice_uri": "Microsoft Zira - English (United States)",
+              "name": "Microsoft Zira - English (United States)",
+              "language": "en-US",
+              "local_service": true,
+              "default": false
+            }
+          ]
+        }
+      },
+      "platform": "windows",
+      "accept_language": "ru-RU,ru;q=0.9",
+      "expect": {
+        "fallback": false,
+        "count": 22,
+        "default": "Microsoft George - English (United Kingdom)",
+        "sha256": "55aeb1af0a0d4d29b79a1fc6247fae9a0d56810624d06d24ec51f370fd5ca42e"
+      },
+      "brand": "chrome"
+    },
+    {
+      "label": "win ru-RU from David",
+      "profile": {
+        "locale": {
+          "primary_language": "ru-RU"
+        },
+        "hardware": {
+          "hardware_concurrency": 6,
+          "device_memory_gb": 8
+        },
+        "display": {
+          "width": 1918,
+          "height": 1080
+        },
+        "speech": {
+          "voices": [
+            {
+              "voice_uri": "Microsoft David - English (United States)",
+              "name": "Microsoft David - English (United States)",
+              "language": "en-US",
+              "local_service": true,
+              "default": true
+            },
+            {
+              "voice_uri": "Microsoft Zira - English (United States)",
+              "name": "Microsoft Zira - English (United States)",
+              "language": "en-US",
+              "local_service": true,
+              "default": false
+            }
+          ]
+        }
+      },
+      "platform": "windows",
+      "accept_language": "ru-RU,ru;q=0.9",
+      "expect": {
+        "fallback": false,
+        "count": 21,
+        "default": "Microsoft Irina - Russian (Russia)",
+        "sha256": "298b546a695873e6ba9deb74da1981e350f0276efe718fe23af78ad135f1658f"
+      },
+      "brand": "chrome"
+    },
+    {
+      "label": "win fr-FR underscore tag",
+      "profile": {
+        "locale": {
+          "primary_language": "fr-FR"
+        },
+        "hardware": {
+          "hardware_concurrency": 7,
+          "device_memory_gb": 8
+        },
+        "display": {
+          "width": 1917,
+          "height": 1080
+        },
+        "speech": {
+          "voices": [
+            {
+              "voice_uri": "Microsoft David - English (United States)",
+              "name": "Microsoft David - English (United States)",
+              "language": "en-US",
+              "local_service": true,
+              "default": true
+            },
+            {
+              "voice_uri": "Microsoft Zira - English (United States)",
+              "name": "Microsoft Zira - English (United States)",
+              "language": "en-US",
+              "local_service": true,
+              "default": false
+            }
+          ]
+        }
+      },
+      "platform": "windows",
+      "accept_language": "ru-RU,ru;q=0.9",
+      "expect": {
+        "fallback": false,
+        "count": 25,
+        "default": "Microsoft Hortense - French (France)",
+        "sha256": "68cbe0d57c2b24804ade6e7dd7f5d64ff933a82b3203c5f3cd2629ec1bcdaf80"
+      },
+      "brand": "chrome"
+    },
+    {
+      "label": "win de-DE",
+      "profile": {
+        "locale": {
+          "primary_language": "de-DE"
+        },
+        "hardware": {
+          "hardware_concurrency": 8,
+          "device_memory_gb": 8
+        },
+        "display": {
+          "width": 1916,
+          "height": 1080
+        },
+        "speech": {
+          "voices": [
+            {
+              "voice_uri": "Microsoft Irina - Russian (Russia)",
+              "name": "Microsoft Irina - Russian (Russia)",
+              "language": "ru-RU",
+              "local_service": true,
+              "default": true
+            },
+            {
+              "voice_uri": "Microsoft Pavel - Russian (Russia)",
+              "name": "Microsoft Pavel - Russian (Russia)",
+              "language": "ru-RU",
+              "local_service": true,
+              "default": false
+            },
+            {
+              "voice_uri": "Google US English",
+              "name": "Google US English",
+              "language": "en-US",
+              "local_service": false,
+              "default": false
+            }
+          ]
+        }
+      },
+      "platform": "windows",
+      "accept_language": "ru-RU,ru;q=0.9",
+      "expect": {
+        "fallback": false,
+        "count": 27,
+        "default": "Microsoft Hedda - German (Germany)",
+        "sha256": "a0f1510e0a6512bcd22d28860b766538e5dd929df24d498d1dae2546762a342e"
+      },
+      "brand": "chrome"
+    },
+    {
+      "label": "win es-MX bare-language match",
+      "profile": {
+        "locale": {
+          "primary_language": "es-MX"
+        },
+        "hardware": {
+          "hardware_concurrency": 9,
+          "device_memory_gb": 8
+        },
+        "display": {
+          "width": 1915,
+          "height": 1080
+        },
+        "speech": {
+          "voices": [
+            {
+              "voice_uri": "Microsoft David - English (United States)",
+              "name": "Microsoft David - English (United States)",
+              "language": "en-US",
+              "local_service": true,
+              "default": true
+            },
+            {
+              "voice_uri": "Microsoft Zira - English (United States)",
+              "name": "Microsoft Zira - English (United States)",
+              "language": "en-US",
+              "local_service": true,
+              "default": false
+            }
+          ]
+        }
+      },
+      "platform": "windows",
+      "accept_language": "ru-RU,ru;q=0.9",
+      "expect": {
+        "fallback": false,
+        "count": 22,
+        "default": "Microsoft Helena - Spanish (Spain)",
+        "sha256": "2771695698de68862ca10beffec89de93983277438aac4a728c1ade67da0aeb3"
+      },
+      "brand": "chrome"
+    },
+    {
+      "label": "win ja-JP uses documented Microsoft voices (Appendix A)",
+      "profile": {
+        "locale": {
+          "primary_language": "ja-JP"
+        },
+        "hardware": {
+          "hardware_concurrency": 10,
+          "device_memory_gb": 8
+        },
+        "display": {
+          "width": 1914,
+          "height": 1080
+        },
+        "speech": {
+          "voices": [
+            {
+              "voice_uri": "Microsoft Irina - Russian (Russia)",
+              "name": "Microsoft Irina - Russian (Russia)",
+              "language": "ru-RU",
+              "local_service": true,
+              "default": true
+            },
+            {
+              "voice_uri": "Microsoft Pavel - Russian (Russia)",
+              "name": "Microsoft Pavel - Russian (Russia)",
+              "language": "ru-RU",
+              "local_service": true,
+              "default": false
+            },
+            {
+              "voice_uri": "Google US English",
+              "name": "Google US English",
+              "language": "en-US",
+              "local_service": false,
+              "default": false
+            }
+          ]
+        }
+      },
+      "platform": "windows",
+      "accept_language": "ru-RU,ru;q=0.9",
+      "expect": {
+        "fallback": false,
+        "count": 22,
+        "default": "Microsoft Ayumi - Japanese (Japan)",
+        "sha256": "c7280b10bd33b8ef556e6bd2b3575f5ad9e388a15e200d204073ad92accecf20"
+      },
+      "brand": "chrome"
+    },
+    {
+      "label": "win ar-EG has no capture or documented voices: English fallback",
+      "profile": {
+        "locale": {
+          "primary_language": "ar-EG"
+        },
+        "hardware": {
+          "hardware_concurrency": 10,
+          "device_memory_gb": 8
+        },
+        "display": {
+          "width": 1914,
+          "height": 1080
+        },
+        "speech": {
+          "voices": [
+            {
+              "voice_uri": "Microsoft Irina - Russian (Russia)",
+              "name": "Microsoft Irina - Russian (Russia)",
+              "language": "ru-RU",
+              "local_service": true,
+              "default": true
+            },
+            {
+              "voice_uri": "Microsoft Pavel - Russian (Russia)",
+              "name": "Microsoft Pavel - Russian (Russia)",
+              "language": "ru-RU",
+              "local_service": true,
+              "default": false
+            },
+            {
+              "voice_uri": "Google US English",
+              "name": "Google US English",
+              "language": "en-US",
+              "local_service": false,
+              "default": false
+            }
+          ]
+        }
+      },
+      "platform": "windows",
+      "accept_language": "ru-RU,ru;q=0.9",
+      "expect": {
+        "fallback": true,
+        "count": 22,
+        "default": "Microsoft David - English (United States)",
+        "sha256": "caf5d359f8c4890fba79d92bcacb78bf61f8033fa76775b2b352d54201df2f07"
+      },
+      "brand": "chrome"
+    },
+    {
+      "label": "win no language uses profile locale",
+      "profile": {
+        "locale": {
+          "primary_language": "tr-TR"
+        },
+        "hardware": {
+          "hardware_concurrency": 11,
+          "device_memory_gb": 8
+        },
+        "display": {
+          "width": 1913,
+          "height": 1080
+        },
+        "speech": {
+          "voices": [
+            {
+              "voice_uri": "Microsoft Irina - Russian (Russia)",
+              "name": "Microsoft Irina - Russian (Russia)",
+              "language": "ru-RU",
+              "local_service": true,
+              "default": true
+            },
+            {
+              "voice_uri": "Microsoft Pavel - Russian (Russia)",
+              "name": "Microsoft Pavel - Russian (Russia)",
+              "language": "ru-RU",
+              "local_service": true,
+              "default": false
+            },
+            {
+              "voice_uri": "Google US English",
+              "name": "Google US English",
+              "language": "en-US",
+              "local_service": false,
+              "default": false
+            }
+          ]
+        }
+      },
+      "platform": "windows",
+      "accept_language": "ru-RU,ru;q=0.9",
+      "expect": {
+        "fallback": false,
+        "count": 20,
+        "default": "Microsoft Tolga - Turkish (Turkey)",
+        "sha256": "4ce7262cb77ca295552e864b417f8b196a0990b951413b268ec33b373c86b3a2"
+      },
+      "brand": "chrome"
+    },
+    {
+      "label": "win empty platform acts as windows",
+      "profile": {
+        "locale": {
+          "primary_language": "pt-BR"
+        },
+        "hardware": {
+          "hardware_concurrency": 4,
+          "device_memory_gb": 8
+        },
+        "display": {
+          "width": 1912,
+          "height": 1080
+        },
+        "speech": {
+          "voices": [
+            {
+              "voice_uri": "Microsoft Irina - Russian (Russia)",
+              "name": "Microsoft Irina - Russian (Russia)",
+              "language": "ru-RU",
+              "local_service": true,
+              "default": true
+            },
+            {
+              "voice_uri": "Microsoft Pavel - Russian (Russia)",
+              "name": "Microsoft Pavel - Russian (Russia)",
+              "language": "ru-RU",
+              "local_service": true,
+              "default": false
+            },
+            {
+              "voice_uri": "Google US English",
+              "name": "Google US English",
+              "language": "en-US",
+              "local_service": false,
+              "default": false
+            }
+          ]
+        }
+      },
+      "platform": "",
+      "accept_language": "ru-RU,ru;q=0.9",
+      "expect": {
+        "fallback": false,
+        "count": 21,
+        "default": "Microsoft Daniel - Portuguese (Brazil)",
+        "sha256": "61f99bc3c28ed165325b94c8f4a7089fa417d7885963bfcafd37eea3807a0b2d"
+      },
+      "brand": "chrome"
+    },
+    {
+      "label": "win zh-CN seed 0",
+      "profile": {
+        "locale": {
+          "primary_language": "zh-CN"
+        },
+        "hardware": {
+          "hardware_concurrency": 8,
+          "device_memory_gb": 8
+        },
+        "display": {
+          "width": 1900,
+          "height": 1080
+        },
+        "speech": {
+          "voices": [
+            {
+              "voice_uri": "Microsoft Irina - Russian (Russia)",
+              "name": "Microsoft Irina - Russian (Russia)",
+              "language": "ru-RU",
+              "local_service": true,
+              "default": true
+            },
+            {
+              "voice_uri": "Microsoft Pavel - Russian (Russia)",
+              "name": "Microsoft Pavel - Russian (Russia)",
+              "language": "ru-RU",
+              "local_service": true,
+              "default": false
+            },
+            {
+              "voice_uri": "Google US English",
+              "name": "Google US English",
+              "language": "en-US",
+              "local_service": false,
+              "default": false
+            }
+          ]
+        }
+      },
+      "platform": "windows",
+      "accept_language": "ru-RU,ru;q=0.9",
+      "expect": {
+        "fallback": false,
+        "count": 22,
+        "default": "Microsoft Huihui - Chinese (Simplified, PRC)",
+        "sha256": "499b51dae34afd5b3dcb219786631f559c6517e2c7f106e364d70c119d618b45"
+      },
+      "brand": "chrome"
+    },
+    {
+      "label": "win zh-CN seed 1",
+      "profile": {
+        "locale": {
+          "primary_language": "zh-CN"
+        },
+        "hardware": {
+          "hardware_concurrency": 9,
+          "device_memory_gb": 8
+        },
+        "display": {
+          "width": 1899,
+          "height": 1080
+        },
+        "speech": {
+          "voices": [
+            {
+              "voice_uri": "Microsoft Irina - Russian (Russia)",
+              "name": "Microsoft Irina - Russian (Russia)",
+              "language": "ru-RU",
+              "local_service": true,
+              "default": true
+            },
+            {
+              "voice_uri": "Microsoft Pavel - Russian (Russia)",
+              "name": "Microsoft Pavel - Russian (Russia)",
+              "language": "ru-RU",
+              "local_service": true,
+              "default": false
+            },
+            {
+              "voice_uri": "Google US English",
+              "name": "Google US English",
+              "language": "en-US",
+              "local_service": false,
+              "default": false
+            }
+          ]
+        }
+      },
+      "platform": "windows",
+      "accept_language": "ru-RU,ru;q=0.9",
+      "expect": {
+        "fallback": false,
+        "count": 22,
+        "default": "Microsoft Huihui - Chinese (Simplified, PRC)",
+        "sha256": "499b51dae34afd5b3dcb219786631f559c6517e2c7f106e364d70c119d618b45"
+      },
+      "brand": "chrome"
+    },
+    {
+      "label": "win zh-CN seed 2",
+      "profile": {
+        "locale": {
+          "primary_language": "zh-CN"
+        },
+        "hardware": {
+          "hardware_concurrency": 10,
+          "device_memory_gb": 8
+        },
+        "display": {
+          "width": 1898,
+          "height": 1080
+        },
+        "speech": {
+          "voices": [
+            {
+              "voice_uri": "Microsoft Irina - Russian (Russia)",
+              "name": "Microsoft Irina - Russian (Russia)",
+              "language": "ru-RU",
+              "local_service": true,
+              "default": true
+            },
+            {
+              "voice_uri": "Microsoft Pavel - Russian (Russia)",
+              "name": "Microsoft Pavel - Russian (Russia)",
+              "language": "ru-RU",
+              "local_service": true,
+              "default": false
+            },
+            {
+              "voice_uri": "Google US English",
+              "name": "Google US English",
+              "language": "en-US",
+              "local_service": false,
+              "default": false
+            }
+          ]
+        }
+      },
+      "platform": "windows",
+      "accept_language": "ru-RU,ru;q=0.9",
+      "expect": {
+        "fallback": false,
+        "count": 22,
+        "default": "Microsoft Huihui - Chinese (Simplified, PRC)",
+        "sha256": "499b51dae34afd5b3dcb219786631f559c6517e2c7f106e364d70c119d618b45"
+      },
+      "brand": "chrome"
+    },
+    {
+      "label": "win zh-CN seed 3",
+      "profile": {
+        "locale": {
+          "primary_language": "zh-CN"
+        },
+        "hardware": {
+          "hardware_concurrency": 11,
+          "device_memory_gb": 8
+        },
+        "display": {
+          "width": 1897,
+          "height": 1080
+        },
+        "speech": {
+          "voices": [
+            {
+              "voice_uri": "Microsoft Irina - Russian (Russia)",
+              "name": "Microsoft Irina - Russian (Russia)",
+              "language": "ru-RU",
+              "local_service": true,
+              "default": true
+            },
+            {
+              "voice_uri": "Microsoft Pavel - Russian (Russia)",
+              "name": "Microsoft Pavel - Russian (Russia)",
+              "language": "ru-RU",
+              "local_service": true,
+              "default": false
+            },
+            {
+              "voice_uri": "Google US English",
+              "name": "Google US English",
+              "language": "en-US",
+              "local_service": false,
+              "default": false
+            }
+          ]
+        }
+      },
+      "platform": "windows",
+      "accept_language": "ru-RU,ru;q=0.9",
+      "expect": {
+        "fallback": false,
+        "count": 22,
+        "default": "Microsoft Huihui - Chinese (Simplified, PRC)",
+        "sha256": "499b51dae34afd5b3dcb219786631f559c6517e2c7f106e364d70c119d618b45"
+      },
+      "brand": "chrome"
+    },
+    {
+      "label": "win zh-CN seed 4",
+      "profile": {
+        "locale": {
+          "primary_language": "zh-CN"
+        },
+        "hardware": {
+          "hardware_concurrency": 4,
+          "device_memory_gb": 8
+        },
+        "display": {
+          "width": 1896,
+          "height": 1080
+        },
+        "speech": {
+          "voices": [
+            {
+              "voice_uri": "Microsoft Irina - Russian (Russia)",
+              "name": "Microsoft Irina - Russian (Russia)",
+              "language": "ru-RU",
+              "local_service": true,
+              "default": true
+            },
+            {
+              "voice_uri": "Microsoft Pavel - Russian (Russia)",
+              "name": "Microsoft Pavel - Russian (Russia)",
+              "language": "ru-RU",
+              "local_service": true,
+              "default": false
+            },
+            {
+              "voice_uri": "Google US English",
+              "name": "Google US English",
+              "language": "en-US",
+              "local_service": false,
+              "default": false
+            }
+          ]
+        }
+      },
+      "platform": "windows",
+      "accept_language": "ru-RU,ru;q=0.9",
+      "expect": {
+        "fallback": false,
+        "count": 22,
+        "default": "Microsoft Huihui - Chinese (Simplified, PRC)",
+        "sha256": "499b51dae34afd5b3dcb219786631f559c6517e2c7f106e364d70c119d618b45"
+      },
+      "brand": "chrome"
+    },
+    {
+      "label": "win zh-CN seed 5",
+      "profile": {
+        "locale": {
+          "primary_language": "zh-CN"
+        },
+        "hardware": {
+          "hardware_concurrency": 5,
+          "device_memory_gb": 8
+        },
+        "display": {
+          "width": 1895,
+          "height": 1080
+        },
+        "speech": {
+          "voices": [
+            {
+              "voice_uri": "Microsoft Irina - Russian (Russia)",
+              "name": "Microsoft Irina - Russian (Russia)",
+              "language": "ru-RU",
+              "local_service": true,
+              "default": true
+            },
+            {
+              "voice_uri": "Microsoft Pavel - Russian (Russia)",
+              "name": "Microsoft Pavel - Russian (Russia)",
+              "language": "ru-RU",
+              "local_service": true,
+              "default": false
+            },
+            {
+              "voice_uri": "Google US English",
+              "name": "Google US English",
+              "language": "en-US",
+              "local_service": false,
+              "default": false
+            }
+          ]
+        }
+      },
+      "platform": "windows",
+      "accept_language": "ru-RU,ru;q=0.9",
+      "expect": {
+        "fallback": false,
+        "count": 22,
+        "default": "Microsoft Huihui - Chinese (Simplified, PRC)",
+        "sha256": "499b51dae34afd5b3dcb219786631f559c6517e2c7f106e364d70c119d618b45"
+      },
+      "brand": "chrome"
+    },
+    {
+      "label": "win zh-CN seed 6",
+      "profile": {
+        "locale": {
+          "primary_language": "zh-CN"
+        },
+        "hardware": {
+          "hardware_concurrency": 6,
+          "device_memory_gb": 8
+        },
+        "display": {
+          "width": 1894,
+          "height": 1080
+        },
+        "speech": {
+          "voices": [
+            {
+              "voice_uri": "Microsoft Irina - Russian (Russia)",
+              "name": "Microsoft Irina - Russian (Russia)",
+              "language": "ru-RU",
+              "local_service": true,
+              "default": true
+            },
+            {
+              "voice_uri": "Microsoft Pavel - Russian (Russia)",
+              "name": "Microsoft Pavel - Russian (Russia)",
+              "language": "ru-RU",
+              "local_service": true,
+              "default": false
+            },
+            {
+              "voice_uri": "Google US English",
+              "name": "Google US English",
+              "language": "en-US",
+              "local_service": false,
+              "default": false
+            }
+          ]
+        }
+      },
+      "platform": "windows",
+      "accept_language": "ru-RU,ru;q=0.9",
+      "expect": {
+        "fallback": false,
+        "count": 22,
+        "default": "Microsoft Huihui - Chinese (Simplified, PRC)",
+        "sha256": "499b51dae34afd5b3dcb219786631f559c6517e2c7f106e364d70c119d618b45"
+      },
+      "brand": "chrome"
+    },
+    {
+      "label": "win zh-CN seed 7",
+      "profile": {
+        "locale": {
+          "primary_language": "zh-CN"
+        },
+        "hardware": {
+          "hardware_concurrency": 7,
+          "device_memory_gb": 8
+        },
+        "display": {
+          "width": 1893,
+          "height": 1080
+        },
+        "speech": {
+          "voices": [
+            {
+              "voice_uri": "Microsoft Irina - Russian (Russia)",
+              "name": "Microsoft Irina - Russian (Russia)",
+              "language": "ru-RU",
+              "local_service": true,
+              "default": true
+            },
+            {
+              "voice_uri": "Microsoft Pavel - Russian (Russia)",
+              "name": "Microsoft Pavel - Russian (Russia)",
+              "language": "ru-RU",
+              "local_service": true,
+              "default": false
+            },
+            {
+              "voice_uri": "Google US English",
+              "name": "Google US English",
+              "language": "en-US",
+              "local_service": false,
+              "default": false
+            }
+          ]
+        }
+      },
+      "platform": "windows",
+      "accept_language": "ru-RU,ru;q=0.9",
+      "expect": {
+        "fallback": false,
+        "count": 22,
+        "default": "Microsoft Huihui - Chinese (Simplified, PRC)",
+        "sha256": "499b51dae34afd5b3dcb219786631f559c6517e2c7f106e364d70c119d618b45"
+      },
+      "brand": "chrome"
+    },
+    {
+      "label": "win zh-CN seed 8",
+      "profile": {
+        "locale": {
+          "primary_language": "zh-CN"
+        },
+        "hardware": {
+          "hardware_concurrency": 8,
+          "device_memory_gb": 8
+        },
+        "display": {
+          "width": 1892,
+          "height": 1080
+        },
+        "speech": {
+          "voices": [
+            {
+              "voice_uri": "Microsoft Irina - Russian (Russia)",
+              "name": "Microsoft Irina - Russian (Russia)",
+              "language": "ru-RU",
+              "local_service": true,
+              "default": true
+            },
+            {
+              "voice_uri": "Microsoft Pavel - Russian (Russia)",
+              "name": "Microsoft Pavel - Russian (Russia)",
+              "language": "ru-RU",
+              "local_service": true,
+              "default": false
+            },
+            {
+              "voice_uri": "Google US English",
+              "name": "Google US English",
+              "language": "en-US",
+              "local_service": false,
+              "default": false
+            }
+          ]
+        }
+      },
+      "platform": "windows",
+      "accept_language": "ru-RU,ru;q=0.9",
+      "expect": {
+        "fallback": false,
+        "count": 22,
+        "default": "Microsoft Huihui - Chinese (Simplified, PRC)",
+        "sha256": "499b51dae34afd5b3dcb219786631f559c6517e2c7f106e364d70c119d618b45"
+      },
+      "brand": "chrome"
+    },
+    {
+      "label": "win zh-CN seed 9",
+      "profile": {
+        "locale": {
+          "primary_language": "zh-CN"
+        },
+        "hardware": {
+          "hardware_concurrency": 9,
+          "device_memory_gb": 8
+        },
+        "display": {
+          "width": 1891,
+          "height": 1080
+        },
+        "speech": {
+          "voices": [
+            {
+              "voice_uri": "Microsoft Irina - Russian (Russia)",
+              "name": "Microsoft Irina - Russian (Russia)",
+              "language": "ru-RU",
+              "local_service": true,
+              "default": true
+            },
+            {
+              "voice_uri": "Microsoft Pavel - Russian (Russia)",
+              "name": "Microsoft Pavel - Russian (Russia)",
+              "language": "ru-RU",
+              "local_service": true,
+              "default": false
+            },
+            {
+              "voice_uri": "Google US English",
+              "name": "Google US English",
+              "language": "en-US",
+              "local_service": false,
+              "default": false
+            }
+          ]
+        }
+      },
+      "platform": "windows",
+      "accept_language": "ru-RU,ru;q=0.9",
+      "expect": {
+        "fallback": false,
+        "count": 22,
+        "default": "Microsoft Huihui - Chinese (Simplified, PRC)",
+        "sha256": "499b51dae34afd5b3dcb219786631f559c6517e2c7f106e364d70c119d618b45"
+      },
+      "brand": "chrome"
+    },
+    {
+      "label": "win zh-CN seed 10",
+      "profile": {
+        "locale": {
+          "primary_language": "zh-CN"
+        },
+        "hardware": {
+          "hardware_concurrency": 10,
+          "device_memory_gb": 8
+        },
+        "display": {
+          "width": 1890,
+          "height": 1080
+        },
+        "speech": {
+          "voices": [
+            {
+              "voice_uri": "Microsoft Irina - Russian (Russia)",
+              "name": "Microsoft Irina - Russian (Russia)",
+              "language": "ru-RU",
+              "local_service": true,
+              "default": true
+            },
+            {
+              "voice_uri": "Microsoft Pavel - Russian (Russia)",
+              "name": "Microsoft Pavel - Russian (Russia)",
+              "language": "ru-RU",
+              "local_service": true,
+              "default": false
+            },
+            {
+              "voice_uri": "Google US English",
+              "name": "Google US English",
+              "language": "en-US",
+              "local_service": false,
+              "default": false
+            }
+          ]
+        }
+      },
+      "platform": "windows",
+      "accept_language": "ru-RU,ru;q=0.9",
+      "expect": {
+        "fallback": false,
+        "count": 22,
+        "default": "Microsoft Huihui - Chinese (Simplified, PRC)",
+        "sha256": "499b51dae34afd5b3dcb219786631f559c6517e2c7f106e364d70c119d618b45"
+      },
+      "brand": "chrome"
+    },
+    {
+      "label": "win zh-CN seed 11",
+      "profile": {
+        "locale": {
+          "primary_language": "zh-CN"
+        },
+        "hardware": {
+          "hardware_concurrency": 11,
+          "device_memory_gb": 8
+        },
+        "display": {
+          "width": 1889,
+          "height": 1080
+        },
+        "speech": {
+          "voices": [
+            {
+              "voice_uri": "Microsoft Irina - Russian (Russia)",
+              "name": "Microsoft Irina - Russian (Russia)",
+              "language": "ru-RU",
+              "local_service": true,
+              "default": true
+            },
+            {
+              "voice_uri": "Microsoft Pavel - Russian (Russia)",
+              "name": "Microsoft Pavel - Russian (Russia)",
+              "language": "ru-RU",
+              "local_service": true,
+              "default": false
+            },
+            {
+              "voice_uri": "Google US English",
+              "name": "Google US English",
+              "language": "en-US",
+              "local_service": false,
+              "default": false
+            }
+          ]
+        }
+      },
+      "platform": "windows",
+      "accept_language": "ru-RU,ru;q=0.9",
+      "expect": {
+        "fallback": false,
+        "count": 22,
+        "default": "Microsoft Huihui - Chinese (Simplified, PRC)",
+        "sha256": "499b51dae34afd5b3dcb219786631f559c6517e2c7f106e364d70c119d618b45"
+      },
+      "brand": "chrome"
+    },
+    {
+      "label": "linux en-US",
+      "profile": {
+        "locale": {
+          "primary_language": "en-US"
+        },
+        "hardware": {
+          "hardware_concurrency": 4,
+          "device_memory_gb": 8
+        },
+        "display": {
+          "width": 1920,
+          "height": 1080
+        },
+        "speech": {
+          "voices": [
+            {
+              "voice_uri": "Microsoft Irina - Russian (Russia)",
+              "name": "Microsoft Irina - Russian (Russia)",
+              "language": "ru-RU",
+              "local_service": true,
+              "default": true
+            },
+            {
+              "voice_uri": "Microsoft Pavel - Russian (Russia)",
+              "name": "Microsoft Pavel - Russian (Russia)",
+              "language": "ru-RU",
+              "local_service": true,
+              "default": false
+            },
+            {
+              "voice_uri": "Google US English",
+              "name": "Google US English",
+              "language": "en-US",
+              "local_service": false,
+              "default": false
+            }
+          ]
+        }
+      },
+      "platform": "linux",
+      "accept_language": "ru-RU,ru;q=0.9",
+      "expect": {
+        "fallback": false,
+        "count": 19,
+        "default": "Google Deutsch",
+        "sha256": "1842815cce3b2cec492e5d41eb9c3c1c0f40659144f014862675c1dc61224b2f"
+      },
+      "brand": "chrome"
+    },
+    {
+      "label": "linux en-GB",
+      "profile": {
+        "locale": {
+          "primary_language": "en-GB"
+        },
+        "hardware": {
+          "hardware_concurrency": 4,
+          "device_memory_gb": 8
+        },
+        "display": {
+          "width": 1920,
+          "height": 1080
+        },
+        "speech": {
+          "voices": [
+            {
+              "voice_uri": "Microsoft Irina - Russian (Russia)",
+              "name": "Microsoft Irina - Russian (Russia)",
+              "language": "ru-RU",
+              "local_service": true,
+              "default": true
+            },
+            {
+              "voice_uri": "Microsoft Pavel - Russian (Russia)",
+              "name": "Microsoft Pavel - Russian (Russia)",
+              "language": "ru-RU",
+              "local_service": true,
+              "default": false
+            },
+            {
+              "voice_uri": "Google US English",
+              "name": "Google US English",
+              "language": "en-US",
+              "local_service": false,
+              "default": false
+            }
+          ]
+        }
+      },
+      "platform": "linux",
+      "accept_language": "ru-RU,ru;q=0.9",
+      "expect": {
+        "fallback": false,
+        "count": 19,
+        "default": "Google Deutsch",
+        "sha256": "1842815cce3b2cec492e5d41eb9c3c1c0f40659144f014862675c1dc61224b2f"
+      },
+      "brand": "chrome"
+    },
+    {
+      "label": "linux de-DE",
+      "profile": {
+        "locale": {
+          "primary_language": "de-DE"
+        },
+        "hardware": {
+          "hardware_concurrency": 4,
+          "device_memory_gb": 8
+        },
+        "display": {
+          "width": 1920,
+          "height": 1080
+        },
+        "speech": {
+          "voices": [
+            {
+              "voice_uri": "Microsoft David - English (United States)",
+              "name": "Microsoft David - English (United States)",
+              "language": "en-US",
+              "local_service": true,
+              "default": true
+            },
+            {
+              "voice_uri": "Microsoft Zira - English (United States)",
+              "name": "Microsoft Zira - English (United States)",
+              "language": "en-US",
+              "local_service": true,
+              "default": false
+            }
+          ]
+        }
+      },
+      "platform": "linux",
+      "accept_language": "ru-RU,ru;q=0.9",
+      "expect": {
+        "fallback": false,
+        "count": 19,
+        "default": "Google Deutsch",
+        "sha256": "1842815cce3b2cec492e5d41eb9c3c1c0f40659144f014862675c1dc61224b2f"
+      },
+      "brand": "chrome"
+    },
+    {
+      "label": "linux ja-JP",
+      "profile": {
+        "locale": {
+          "primary_language": "ja-JP"
+        },
+        "hardware": {
+          "hardware_concurrency": 4,
+          "device_memory_gb": 8
+        },
+        "display": {
+          "width": 1920,
+          "height": 1080
+        },
+        "speech": {
+          "voices": [
+            {
+              "voice_uri": "Microsoft David - English (United States)",
+              "name": "Microsoft David - English (United States)",
+              "language": "en-US",
+              "local_service": true,
+              "default": true
+            },
+            {
+              "voice_uri": "Microsoft Zira - English (United States)",
+              "name": "Microsoft Zira - English (United States)",
+              "language": "en-US",
+              "local_service": true,
+              "default": false
+            }
+          ]
+        }
+      },
+      "platform": "linux",
+      "accept_language": "ru-RU,ru;q=0.9",
+      "expect": {
+        "fallback": false,
+        "count": 19,
+        "default": "Google Deutsch",
+        "sha256": "1842815cce3b2cec492e5d41eb9c3c1c0f40659144f014862675c1dc61224b2f"
+      },
+      "brand": "chrome"
+    },
+    {
+      "label": "linux zh-TW",
+      "profile": {
+        "locale": {
+          "primary_language": "zh-TW"
+        },
+        "hardware": {
+          "hardware_concurrency": 4,
+          "device_memory_gb": 8
+        },
+        "display": {
+          "width": 1920,
+          "height": 1080
+        },
+        "speech": {
+          "voices": [
+            {
+              "voice_uri": "Microsoft David - English (United States)",
+              "name": "Microsoft David - English (United States)",
+              "language": "en-US",
+              "local_service": true,
+              "default": true
+            },
+            {
+              "voice_uri": "Microsoft Zira - English (United States)",
+              "name": "Microsoft Zira - English (United States)",
+              "language": "en-US",
+              "local_service": true,
+              "default": false
+            }
+          ]
+        }
+      },
+      "platform": "linux",
+      "accept_language": "ru-RU,ru;q=0.9",
+      "expect": {
+        "fallback": false,
+        "count": 19,
+        "default": "Google Deutsch",
+        "sha256": "1842815cce3b2cec492e5d41eb9c3c1c0f40659144f014862675c1dc61224b2f"
+      },
+      "brand": "chrome"
+    },
+    {
+      "label": "linux unknown language tr-TR falls back to English",
+      "profile": {
+        "locale": {
+          "primary_language": "tr-TR"
+        },
+        "hardware": {
+          "hardware_concurrency": 4,
+          "device_memory_gb": 8
+        },
+        "display": {
+          "width": 1920,
+          "height": 1080
+        },
+        "speech": {
+          "voices": [
+            {
+              "voice_uri": "Microsoft David - English (United States)",
+              "name": "Microsoft David - English (United States)",
+              "language": "en-US",
+              "local_service": true,
+              "default": true
+            },
+            {
+              "voice_uri": "Microsoft Zira - English (United States)",
+              "name": "Microsoft Zira - English (United States)",
+              "language": "en-US",
+              "local_service": true,
+              "default": false
+            }
+          ]
+        }
+      },
+      "platform": "linux",
+      "accept_language": "ru-RU,ru;q=0.9",
+      "expect": {
+        "fallback": false,
+        "count": 19,
+        "default": "Google Deutsch",
+        "sha256": "1842815cce3b2cec492e5d41eb9c3c1c0f40659144f014862675c1dc61224b2f"
+      },
+      "brand": "chrome"
+    },
+    {
+      "label": "linux no language uses profile locale",
+      "profile": {
+        "locale": {
+          "primary_language": "fr-FR"
+        },
+        "hardware": {
+          "hardware_concurrency": 4,
+          "device_memory_gb": 8
+        },
+        "display": {
+          "width": 1920,
+          "height": 1080
+        },
+        "speech": {
+          "voices": [
+            {
+              "voice_uri": "Microsoft David - English (United States)",
+              "name": "Microsoft David - English (United States)",
+              "language": "en-US",
+              "local_service": true,
+              "default": true
+            },
+            {
+              "voice_uri": "Microsoft Zira - English (United States)",
+              "name": "Microsoft Zira - English (United States)",
+              "language": "en-US",
+              "local_service": true,
+              "default": false
+            }
+          ]
+        }
+      },
+      "platform": "linux",
+      "accept_language": "ru-RU,ru;q=0.9",
+      "expect": {
+        "fallback": false,
+        "count": 19,
+        "default": "Google Deutsch",
+        "sha256": "1842815cce3b2cec492e5d41eb9c3c1c0f40659144f014862675c1dc61224b2f"
+      },
+      "brand": "chrome"
+    },
+    {
+      "label": "macos untouched",
+      "profile": {
+        "locale": {
+          "primary_language": "en-US"
+        },
+        "hardware": {
+          "hardware_concurrency": 4,
+          "device_memory_gb": 8
+        },
+        "display": {
+          "width": 1920,
+          "height": 1080
+        },
+        "speech": {
+          "voices": [
+            {
+              "voice_uri": "Microsoft Irina - Russian (Russia)",
+              "name": "Microsoft Irina - Russian (Russia)",
+              "language": "ru-RU",
+              "local_service": true,
+              "default": true
+            },
+            {
+              "voice_uri": "Microsoft Pavel - Russian (Russia)",
+              "name": "Microsoft Pavel - Russian (Russia)",
+              "language": "ru-RU",
+              "local_service": true,
+              "default": false
+            },
+            {
+              "voice_uri": "Google US English",
+              "name": "Google US English",
+              "language": "en-US",
+              "local_service": false,
+              "default": false
+            }
+          ]
+        }
+      },
+      "platform": "macos",
+      "accept_language": "ru-RU,ru;q=0.9",
+      "expect": {
+        "fallback": false,
+        "count": 3,
+        "default": "Microsoft Irina - Russian (Russia)",
+        "sha256": "e79fb6af7b7d1183fae36f39e16cc199bc0a64717eb579d7f34c27d1e2c42fc4"
+      },
+      "brand": "chrome"
+    },
+    {
+      "label": "android untouched",
+      "profile": {
+        "locale": {
+          "primary_language": "en-US"
+        },
+        "hardware": {
+          "hardware_concurrency": 4,
+          "device_memory_gb": 8
+        },
+        "display": {
+          "width": 1920,
+          "height": 1080
+        },
+        "speech": {
+          "voices": [
+            {
+              "voice_uri": "Microsoft Irina - Russian (Russia)",
+              "name": "Microsoft Irina - Russian (Russia)",
+              "language": "ru-RU",
+              "local_service": true,
+              "default": true
+            },
+            {
+              "voice_uri": "Microsoft Pavel - Russian (Russia)",
+              "name": "Microsoft Pavel - Russian (Russia)",
+              "language": "ru-RU",
+              "local_service": true,
+              "default": false
+            },
+            {
+              "voice_uri": "Google US English",
+              "name": "Google US English",
+              "language": "en-US",
+              "local_service": false,
+              "default": false
+            }
+          ]
+        }
+      },
+      "platform": "android",
+      "accept_language": "ru-RU,ru;q=0.9",
+      "expect": {
+        "fallback": false,
+        "count": 3,
+        "default": "Microsoft Irina - Russian (Russia)",
+        "sha256": "e79fb6af7b7d1183fae36f39e16cc199bc0a64717eb579d7f34c27d1e2c42fc4"
+      },
+      "brand": "chrome"
+    },
+    {
+      "label": "win en-US keeps matching capture brand Edge",
+      "profile": {
+        "locale": {
+          "primary_language": "en-US"
+        },
+        "hardware": {
+          "hardware_concurrency": 4,
+          "device_memory_gb": 8
+        },
+        "display": {
+          "width": 1920,
+          "height": 1080
+        },
+        "speech": {
+          "voices": [
+            {
+              "voice_uri": "Microsoft David - English (United States)",
+              "name": "Microsoft David - English (United States)",
+              "language": "en-US",
+              "local_service": true,
+              "default": true
+            },
+            {
+              "voice_uri": "Microsoft Zira - English (United States)",
+              "name": "Microsoft Zira - English (United States)",
+              "language": "en-US",
+              "local_service": true,
+              "default": false
+            }
+          ]
+        }
+      },
+      "platform": "windows",
+      "accept_language": "ru-RU,ru;q=0.9",
+      "expect": {
+        "fallback": false,
+        "count": 2,
+        "default": "Microsoft David - English (United States)",
+        "sha256": "49c71df039de86793d88a9607114e22fdd2d88fe8d5418bc429f1df739068cff"
+      },
+      "brand": "Edge"
+    },
+    {
+      "label": "win en-US keeps matching capture brand none",
+      "profile": {
+        "locale": {
+          "primary_language": "en-US"
+        },
+        "hardware": {
+          "hardware_concurrency": 4,
+          "device_memory_gb": 8
+        },
+        "display": {
+          "width": 1920,
+          "height": 1080
+        },
+        "speech": {
+          "voices": [
+            {
+              "voice_uri": "Microsoft David - English (United States)",
+              "name": "Microsoft David - English (United States)",
+              "language": "en-US",
+              "local_service": true,
+              "default": true
+            },
+            {
+              "voice_uri": "Microsoft Zira - English (United States)",
+              "name": "Microsoft Zira - English (United States)",
+              "language": "en-US",
+              "local_service": true,
+              "default": false
+            }
+          ]
+        }
+      },
+      "platform": "windows",
+      "accept_language": "ru-RU,ru;q=0.9",
+      "expect": {
+        "fallback": false,
+        "count": 2,
+        "default": "Microsoft David - English (United States)",
+        "sha256": "49c71df039de86793d88a9607114e22fdd2d88fe8d5418bc429f1df739068cff"
+      }
+    },
+    {
+      "label": "win ru-RU from David brand Edge",
+      "profile": {
+        "locale": {
+          "primary_language": "ru-RU"
+        },
+        "hardware": {
+          "hardware_concurrency": 6,
+          "device_memory_gb": 8
+        },
+        "display": {
+          "width": 1918,
+          "height": 1080
+        },
+        "speech": {
+          "voices": [
+            {
+              "voice_uri": "Microsoft David - English (United States)",
+              "name": "Microsoft David - English (United States)",
+              "language": "en-US",
+              "local_service": true,
+              "default": true
+            },
+            {
+              "voice_uri": "Microsoft Zira - English (United States)",
+              "name": "Microsoft Zira - English (United States)",
+              "language": "en-US",
+              "local_service": true,
+              "default": false
+            }
+          ]
+        }
+      },
+      "platform": "windows",
+      "accept_language": "ru-RU,ru;q=0.9",
+      "expect": {
+        "fallback": false,
+        "count": 2,
+        "default": "Microsoft Irina - Russian (Russia)",
+        "sha256": "44a72a7850056802370ac94f11a2bd0d92f75b14e0ef78a2064329c4ab9423ad"
+      },
+      "brand": "Edge"
+    },
+    {
+      "label": "win ru-RU from David brand none",
+      "profile": {
+        "locale": {
+          "primary_language": "ru-RU"
+        },
+        "hardware": {
+          "hardware_concurrency": 6,
+          "device_memory_gb": 8
+        },
+        "display": {
+          "width": 1918,
+          "height": 1080
+        },
+        "speech": {
+          "voices": [
+            {
+              "voice_uri": "Microsoft David - English (United States)",
+              "name": "Microsoft David - English (United States)",
+              "language": "en-US",
+              "local_service": true,
+              "default": true
+            },
+            {
+              "voice_uri": "Microsoft Zira - English (United States)",
+              "name": "Microsoft Zira - English (United States)",
+              "language": "en-US",
+              "local_service": true,
+              "default": false
+            }
+          ]
+        }
+      },
+      "platform": "windows",
+      "accept_language": "ru-RU,ru;q=0.9",
+      "expect": {
+        "fallback": false,
+        "count": 2,
+        "default": "Microsoft Irina - Russian (Russia)",
+        "sha256": "44a72a7850056802370ac94f11a2bd0d92f75b14e0ef78a2064329c4ab9423ad"
+      }
+    },
+    {
+      "label": "win en-GB wants George brand Edge",
+      "profile": {
+        "locale": {
+          "primary_language": "en-GB"
+        },
+        "hardware": {
+          "hardware_concurrency": 5,
+          "device_memory_gb": 8
+        },
+        "display": {
+          "width": 1919,
+          "height": 1080
+        },
+        "speech": {
+          "voices": [
+            {
+              "voice_uri": "Microsoft David - English (United States)",
+              "name": "Microsoft David - English (United States)",
+              "language": "en-US",
+              "local_service": true,
+              "default": true
+            },
+            {
+              "voice_uri": "Microsoft Zira - English (United States)",
+              "name": "Microsoft Zira - English (United States)",
+              "language": "en-US",
+              "local_service": true,
+              "default": false
+            }
+          ]
+        }
+      },
+      "platform": "windows",
+      "accept_language": "ru-RU,ru;q=0.9",
+      "expect": {
+        "fallback": false,
+        "count": 3,
+        "default": "Microsoft George - English (United Kingdom)",
+        "sha256": "9001ad0a9c825e1ecfb840dccb9f289ac58b85edfad857a71f1e796766ef4008"
+      },
+      "brand": "Edge"
+    },
+    {
+      "label": "win en-GB wants George brand none",
+      "profile": {
+        "locale": {
+          "primary_language": "en-GB"
+        },
+        "hardware": {
+          "hardware_concurrency": 5,
+          "device_memory_gb": 8
+        },
+        "display": {
+          "width": 1919,
+          "height": 1080
+        },
+        "speech": {
+          "voices": [
+            {
+              "voice_uri": "Microsoft David - English (United States)",
+              "name": "Microsoft David - English (United States)",
+              "language": "en-US",
+              "local_service": true,
+              "default": true
+            },
+            {
+              "voice_uri": "Microsoft Zira - English (United States)",
+              "name": "Microsoft Zira - English (United States)",
+              "language": "en-US",
+              "local_service": true,
+              "default": false
+            }
+          ]
+        }
+      },
+      "platform": "windows",
+      "accept_language": "ru-RU,ru;q=0.9",
+      "expect": {
+        "fallback": false,
+        "count": 3,
+        "default": "Microsoft George - English (United Kingdom)",
+        "sha256": "9001ad0a9c825e1ecfb840dccb9f289ac58b85edfad857a71f1e796766ef4008"
+      }
+    },
+    {
+      "label": "linux en-US brand Edge",
+      "profile": {
+        "locale": {
+          "primary_language": "en-US"
+        },
+        "hardware": {
+          "hardware_concurrency": 4,
+          "device_memory_gb": 8
+        },
+        "display": {
+          "width": 1920,
+          "height": 1080
+        },
+        "speech": {
+          "voices": [
+            {
+              "voice_uri": "Microsoft Irina - Russian (Russia)",
+              "name": "Microsoft Irina - Russian (Russia)",
+              "language": "ru-RU",
+              "local_service": true,
+              "default": true
+            },
+            {
+              "voice_uri": "Microsoft Pavel - Russian (Russia)",
+              "name": "Microsoft Pavel - Russian (Russia)",
+              "language": "ru-RU",
+              "local_service": true,
+              "default": false
+            },
+            {
+              "voice_uri": "Google US English",
+              "name": "Google US English",
+              "language": "en-US",
+              "local_service": false,
+              "default": false
+            }
+          ]
+        }
+      },
+      "platform": "linux",
+      "accept_language": "ru-RU,ru;q=0.9",
+      "expect": {
+        "fallback": false,
+        "count": 0,
+        "default": null,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "brand": "Edge"
+    },
+    {
+      "label": "linux en-US brand none",
+      "profile": {
+        "locale": {
+          "primary_language": "en-US"
+        },
+        "hardware": {
+          "hardware_concurrency": 4,
+          "device_memory_gb": 8
+        },
+        "display": {
+          "width": 1920,
+          "height": 1080
+        },
+        "speech": {
+          "voices": [
+            {
+              "voice_uri": "Microsoft Irina - Russian (Russia)",
+              "name": "Microsoft Irina - Russian (Russia)",
+              "language": "ru-RU",
+              "local_service": true,
+              "default": true
+            },
+            {
+              "voice_uri": "Microsoft Pavel - Russian (Russia)",
+              "name": "Microsoft Pavel - Russian (Russia)",
+              "language": "ru-RU",
+              "local_service": true,
+              "default": false
+            },
+            {
+              "voice_uri": "Google US English",
+              "name": "Google US English",
+              "language": "en-US",
+              "local_service": false,
+              "default": false
+            }
+          ]
+        }
+      },
+      "platform": "linux",
+      "accept_language": "ru-RU,ru;q=0.9",
+      "expect": {
+        "fallback": false,
+        "count": 0,
+        "default": null,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      }
+    },
+    {
+      "label": "linux ja-JP brand Edge",
+      "profile": {
+        "locale": {
+          "primary_language": "ja-JP"
+        },
+        "hardware": {
+          "hardware_concurrency": 4,
+          "device_memory_gb": 8
+        },
+        "display": {
+          "width": 1920,
+          "height": 1080
+        },
+        "speech": {
+          "voices": [
+            {
+              "voice_uri": "Microsoft David - English (United States)",
+              "name": "Microsoft David - English (United States)",
+              "language": "en-US",
+              "local_service": true,
+              "default": true
+            },
+            {
+              "voice_uri": "Microsoft Zira - English (United States)",
+              "name": "Microsoft Zira - English (United States)",
+              "language": "en-US",
+              "local_service": true,
+              "default": false
+            }
+          ]
+        }
+      },
+      "platform": "linux",
+      "accept_language": "ru-RU,ru;q=0.9",
+      "expect": {
+        "fallback": false,
+        "count": 0,
+        "default": null,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "brand": "Edge"
+    },
+    {
+      "label": "linux ja-JP brand none",
+      "profile": {
+        "locale": {
+          "primary_language": "ja-JP"
+        },
+        "hardware": {
+          "hardware_concurrency": 4,
+          "device_memory_gb": 8
+        },
+        "display": {
+          "width": 1920,
+          "height": 1080
+        },
+        "speech": {
+          "voices": [
+            {
+              "voice_uri": "Microsoft David - English (United States)",
+              "name": "Microsoft David - English (United States)",
+              "language": "en-US",
+              "local_service": true,
+              "default": true
+            },
+            {
+              "voice_uri": "Microsoft Zira - English (United States)",
+              "name": "Microsoft Zira - English (United States)",
+              "language": "en-US",
+              "local_service": true,
+              "default": false
+            }
+          ]
+        }
+      },
+      "platform": "linux",
+      "accept_language": "ru-RU,ru;q=0.9",
+      "expect": {
+        "fallback": false,
+        "count": 0,
+        "default": null,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      }
+    },
+    {
+      "label": "android untouched brand Edge",
+      "profile": {
+        "locale": {
+          "primary_language": "en-US"
+        },
+        "hardware": {
+          "hardware_concurrency": 4,
+          "device_memory_gb": 8
+        },
+        "display": {
+          "width": 1920,
+          "height": 1080
+        },
+        "speech": {
+          "voices": [
+            {
+              "voice_uri": "Microsoft Irina - Russian (Russia)",
+              "name": "Microsoft Irina - Russian (Russia)",
+              "language": "ru-RU",
+              "local_service": true,
+              "default": true
+            },
+            {
+              "voice_uri": "Microsoft Pavel - Russian (Russia)",
+              "name": "Microsoft Pavel - Russian (Russia)",
+              "language": "ru-RU",
+              "local_service": true,
+              "default": false
+            },
+            {
+              "voice_uri": "Google US English",
+              "name": "Google US English",
+              "language": "en-US",
+              "local_service": false,
+              "default": false
+            }
+          ]
+        }
+      },
+      "platform": "android",
+      "accept_language": "ru-RU,ru;q=0.9",
+      "expect": {
+        "fallback": false,
+        "count": 3,
+        "default": "Microsoft Irina - Russian (Russia)",
+        "sha256": "e79fb6af7b7d1183fae36f39e16cc199bc0a64717eb579d7f34c27d1e2c42fc4"
+      },
+      "brand": "Edge"
+    },
+    {
+      "label": "android untouched brand none",
+      "profile": {
+        "locale": {
+          "primary_language": "en-US"
+        },
+        "hardware": {
+          "hardware_concurrency": 4,
+          "device_memory_gb": 8
+        },
+        "display": {
+          "width": 1920,
+          "height": 1080
+        },
+        "speech": {
+          "voices": [
+            {
+              "voice_uri": "Microsoft Irina - Russian (Russia)",
+              "name": "Microsoft Irina - Russian (Russia)",
+              "language": "ru-RU",
+              "local_service": true,
+              "default": true
+            },
+            {
+              "voice_uri": "Microsoft Pavel - Russian (Russia)",
+              "name": "Microsoft Pavel - Russian (Russia)",
+              "language": "ru-RU",
+              "local_service": true,
+              "default": false
+            },
+            {
+              "voice_uri": "Google US English",
+              "name": "Google US English",
+              "language": "en-US",
+              "local_service": false,
+              "default": false
+            }
+          ]
+        }
+      },
+      "platform": "android",
+      "accept_language": "ru-RU,ru;q=0.9",
+      "expect": {
+        "fallback": false,
+        "count": 3,
+        "default": "Microsoft Irina - Russian (Russia)",
+        "sha256": "e79fb6af7b7d1183fae36f39e16cc199bc0a64717eb579d7f34c27d1e2c42fc4"
+      }
+    },
+    {
+      "label": "macos untouched brand Edge",
+      "profile": {
+        "locale": {
+          "primary_language": "en-US"
+        },
+        "hardware": {
+          "hardware_concurrency": 4,
+          "device_memory_gb": 8
+        },
+        "display": {
+          "width": 1920,
+          "height": 1080
+        },
+        "speech": {
+          "voices": [
+            {
+              "voice_uri": "Microsoft Irina - Russian (Russia)",
+              "name": "Microsoft Irina - Russian (Russia)",
+              "language": "ru-RU",
+              "local_service": true,
+              "default": true
+            },
+            {
+              "voice_uri": "Microsoft Pavel - Russian (Russia)",
+              "name": "Microsoft Pavel - Russian (Russia)",
+              "language": "ru-RU",
+              "local_service": true,
+              "default": false
+            },
+            {
+              "voice_uri": "Google US English",
+              "name": "Google US English",
+              "language": "en-US",
+              "local_service": false,
+              "default": false
+            }
+          ]
+        }
+      },
+      "platform": "macos",
+      "accept_language": "ru-RU,ru;q=0.9",
+      "expect": {
+        "fallback": false,
+        "count": 3,
+        "default": "Microsoft Irina - Russian (Russia)",
+        "sha256": "e79fb6af7b7d1183fae36f39e16cc199bc0a64717eb579d7f34c27d1e2c42fc4"
+      },
+      "brand": "Edge"
+    },
+    {
+      "label": "macos untouched brand none",
+      "profile": {
+        "locale": {
+          "primary_language": "en-US"
+        },
+        "hardware": {
+          "hardware_concurrency": 4,
+          "device_memory_gb": 8
+        },
+        "display": {
+          "width": 1920,
+          "height": 1080
+        },
+        "speech": {
+          "voices": [
+            {
+              "voice_uri": "Microsoft Irina - Russian (Russia)",
+              "name": "Microsoft Irina - Russian (Russia)",
+              "language": "ru-RU",
+              "local_service": true,
+              "default": true
+            },
+            {
+              "voice_uri": "Microsoft Pavel - Russian (Russia)",
+              "name": "Microsoft Pavel - Russian (Russia)",
+              "language": "ru-RU",
+              "local_service": true,
+              "default": false
+            },
+            {
+              "voice_uri": "Google US English",
+              "name": "Google US English",
+              "language": "en-US",
+              "local_service": false,
+              "default": false
+            }
+          ]
+        }
+      },
+      "platform": "macos",
+      "accept_language": "ru-RU,ru;q=0.9",
+      "expect": {
+        "fallback": false,
+        "count": 3,
+        "default": "Microsoft Irina - Russian (Russia)",
+        "sha256": "e79fb6af7b7d1183fae36f39e16cc199bc0a64717eb579d7f34c27d1e2c42fc4"
+      }
+    }
+  ]
+}
